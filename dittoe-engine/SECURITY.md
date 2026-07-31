@@ -2,8 +2,8 @@
 
 ## Supported Versions
 
-Public release support starts with the first tagged public release. Until
-then, security fixes are handled on active development branches only.
+Security fixes are applied to the current tagged public release line and the
+active `dev` pre-release line.
 
 ## Reporting a Vulnerability
 
