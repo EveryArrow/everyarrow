@@ -70,7 +70,7 @@
         <json.version>20250517</json.version>
         <snowflake.jdbc.version>4.3.2</snowflake.jdbc.version>
         <uuid.creator.version>6.1.1</uuid.creator.version>
-        <jsonschema.generator.version>4.37.0</jsonschema.generator.version>
+        <jsonschema.generator.version>5.0.0</jsonschema.generator.version>
         <json.schema.validator.version>1.5.4</json.schema.validator.version>
         <commons.validator.version>1.10.1</commons.validator.version>
         <gson.version>2.13.2</gson.version>
