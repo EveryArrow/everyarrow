@@ -1,0 +1,333 @@
+{
+  "id": "c94adc01-20a6-492f-9dd6-52d5da97c869",
+  "S2TMap": [
+    {
+      "sourceField": {
+        "name": "WorkOrderID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "WorkOrderID",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ProductID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ProductID",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "OperationSequence",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "OperationSequence",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "LocationID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "LocationID",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ScheduledStartDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ScheduledStartDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ScheduledEndDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ScheduledEndDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ActualStartDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ActualStartDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ActualEndDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ActualEndDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ActualResourceHrs",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ActualResourceHrs",
+        "dataType": "Decimal",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "PlannedCost",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "PlannedCost",
+        "dataType": "Decimal",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ActualCost",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ActualCost",
+        "dataType": "Decimal",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ModifiedDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ModifiedDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    }
+  ],
+  "behaviors": [
+    {
+      "name": "SourceRetrieval",
+      "properties": {
+        "errorCountThreshold": "1"
+      },
+      "description": "Used to retrieve data from the source resource",
+      "behaviorType": "SourceRetrieval"
+    },
+    {
+      "name": "TargetInsertUpdate",
+      "properties": {
+        "errorCountThreshold": "1"
+      },
+      "description": "Used to write data to the target resource",
+      "behaviorType": "TargetInsertUpdate"
+    },
+    {
+      "name": "Instrumentation",
+      "properties": {},
+      "description": "Used for pipeline instrumentation",
+      "behaviorType": "Instrumentation"
+    },
+    {
+      "name": "Transformation",
+      "properties": {},
+      "description": "Apply tansformation using DEAL",
+      "behaviorType": "Transformation"
+    }
+  ],
+  "shortName": "WorkOrderRouting.csv to WorkOrderRouting Pipeline",
+  "globalProperties": {},
+  "sourceResourceToProcess": {
+    "fields": [
+      {
+        "name": "WorkOrderID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ProductID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "OperationSequence",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "LocationID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ScheduledStartDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ScheduledEndDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ActualStartDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ActualEndDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ActualResourceHrs",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "PlannedCost",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ActualCost",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ModifiedDate",
+        "dataType": "String",
+        "isNullable": false
+      }
+    ],
+    "server": {
+      "name": "local-file-server",
+      "type": "File",
+      "connectionDetails": {
+        "path": "src/test/resources/pipelines/WorkOrderRouting/source",
+        "fileType": "LocalFileServer"
+      }
+    },
+    "strategy": "com.everyarrow.dittoe.io.file.servers.localfile.reader.strategy.CSVReadStrategy",
+    "resourceID": 3,
+    "resourceName": "local-file.csv",
+    "resourceProperties": {}
+  },
+  "targetResourceToProcess": {
+    "fields": [
+      {
+        "name": "WorkOrderID",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "ProductID",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "OperationSequence",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "LocationID",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "ScheduledStartDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      },
+      {
+        "name": "ScheduledEndDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      },
+      {
+        "name": "ActualStartDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": true
+      },
+      {
+        "name": "ActualEndDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": true
+      },
+      {
+        "name": "ActualResourceHrs",
+        "dataType": "Decimal",
+        "isNullable": true
+      },
+      {
+        "name": "PlannedCost",
+        "dataType": "Decimal",
+        "isNullable": false
+      },
+      {
+        "name": "ActualCost",
+        "dataType": "Decimal",
+        "isNullable": true
+      },
+      {
+        "name": "ModifiedDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    ],
+    "server": {
+      "name": "local-file-server",
+      "type": "File",
+      "connectionDetails": {
+        "path": "src/test/resources/pipelines/WorkOrderRouting/target",
+        "fileType": "LocalFileServer"
+      }
+    },
+    "strategy": "com.everyarrow.dittoe.io.file.servers.localfile.writer.strategy.CSVWriteStrategy",
+    "resourceID": 4,
+    "resourceName": "local-file.csv",
+    "resourceProperties": {}
+  }
+}

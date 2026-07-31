@@ -1,0 +1,312 @@
+{
+  "id": "023a2c93-248f-495f-91b4-6d58cbd98e3f",
+  "S2TMap": [
+    {
+      "sourceField": {
+        "name": "PurchaseOrderID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "PurchaseOrderID",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "PurchaseOrderDetailID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "PurchaseOrderDetailID",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "DueDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "DueDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "OrderQty",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "OrderQty",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ProductID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ProductID",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "UnitPrice",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "UnitPrice",
+        "dataType": "Decimal",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "LineTotal",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "LineTotal",
+        "dataType": "Decimal",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ReceivedQty",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ReceivedQty",
+        "dataType": "Decimal",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "RejectedQty",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "RejectedQty",
+        "dataType": "Decimal",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "StockedQty",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "StockedQty",
+        "dataType": "Decimal",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ModifiedDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ModifiedDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    }
+  ],
+  "behaviors": [
+    {
+      "name": "SourceRetrieval",
+      "properties": {
+        "errorCountThreshold": "1"
+      },
+      "description": "Used to retrieve data from the source resource",
+      "behaviorType": "SourceRetrieval"
+    },
+    {
+      "name": "TargetInsertUpdate",
+      "properties": {
+        "errorCountThreshold": "1"
+      },
+      "description": "Used to write data to the target resource",
+      "behaviorType": "TargetInsertUpdate"
+    },
+    {
+      "name": "Instrumentation",
+      "properties": {},
+      "description": "Used for pipeline instrumentation",
+      "behaviorType": "Instrumentation"
+    },
+    {
+      "name": "Transformation",
+      "properties": {},
+      "description": "Apply tansformation using DEAL",
+      "behaviorType": "Transformation"
+    }
+  ],
+  "shortName": "PurchaseOrderDetail to PurchaseOrderDetail SQLite Pipeline",
+  "globalProperties": {},
+  "sourceResourceToProcess": {
+    "fields": [
+      {
+        "name": "PurchaseOrderID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "PurchaseOrderDetailID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "DueDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "OrderQty",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ProductID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "UnitPrice",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "LineTotal",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ReceivedQty",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "RejectedQty",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "StockedQty",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ModifiedDate",
+        "dataType": "String",
+        "isNullable": false
+      }
+    ],
+    "server": {
+      "name": "local-file-server",
+      "type": "File",
+      "connectionDetails": {
+        "path": "src/test/resources/pipelines/PurchaseOrderDetail/source",
+        "fileType": "LocalFileServer"
+      }
+    },
+    "strategy": "com.everyarrow.dittoe.io.file.servers.localfile.reader.strategy.CSVReadStrategy",
+    "resourceID": 3,
+    "resourceName": "local-file.csv",
+    "resourceProperties": {}
+  },
+  "targetResourceToProcess": {
+    "fields": [
+      {
+        "name": "PurchaseOrderID",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "PurchaseOrderDetailID",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "DueDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      },
+      {
+        "name": "OrderQty",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "ProductID",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "UnitPrice",
+        "dataType": "Decimal",
+        "isNullable": false
+      },
+      {
+        "name": "LineTotal",
+        "dataType": "Decimal",
+        "isNullable": false
+      },
+      {
+        "name": "ReceivedQty",
+        "dataType": "Decimal",
+        "isNullable": false
+      },
+      {
+        "name": "RejectedQty",
+        "dataType": "Decimal",
+        "isNullable": false
+      },
+      {
+        "name": "StockedQty",
+        "dataType": "Decimal",
+        "isNullable": false
+      },
+      {
+        "name": "ModifiedDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    ],
+    "server": {
+      "name": "sqlite",
+      "type": "Database",
+      "connectionDetails": {
+        "path": "src/test/resources/sqlite/target.db",
+        "databaseType": "SQLiteServer"
+      }
+    },
+    "strategy": "com.everyarrow.dittoe.io.database.servers.jdbc.writer.strategy.InsertStrategy",
+    "resourceID": 4,
+    "resourceName": "purchaseorderdetail",
+    "resourceProperties": {}
+  },
+  "templateType": "FileToDatabase"
+}

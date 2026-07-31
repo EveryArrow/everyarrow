@@ -1,0 +1,619 @@
+{
+  "id": "5d1a1dd3-ccc6-44e5-ace4-fea0253fdc30",
+  "S2TMap": [
+    {
+      "sourceField": {
+        "name": "ProductID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ProductID",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "Name",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "Name",
+        "dataType": "String",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ProductNumber",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ProductNumber",
+        "dataType": "String",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "MakeFlag",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "MakeFlag",
+        "dataType": "String",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "FinishedGoodsFlag",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "FinishedGoodsFlag",
+        "dataType": "String",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "Color",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "Color",
+        "dataType": "String",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "SafetyStockLevel",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "SafetyStockLevel",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ReorderPoint",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ReorderPoint",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "StandardCost",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "StandardCost",
+        "dataType": "Decimal",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ListPrice",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ListPrice",
+        "dataType": "Decimal",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "Size",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "Size",
+        "dataType": "String",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "SizeUnitMeasureCode",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "SizeUnitMeasureCode",
+        "dataType": "String",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "WeightUnitMeasureCode",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "WeightUnitMeasureCode",
+        "dataType": "String",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "Weight",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "Weight",
+        "dataType": "Decimal",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "DaysToManufacture",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "DaysToManufacture",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ProductLine",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ProductLine",
+        "dataType": "String",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "Class",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "Class",
+        "dataType": "String",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "Style",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "Style",
+        "dataType": "String",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ProductSubcategoryID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ProductSubcategoryID",
+        "dataType": "Integer",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ProductModelID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ProductModelID",
+        "dataType": "Integer",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "SellStartDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "SellStartDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "SellEndDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "SellEndDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "DiscontinuedDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "DiscontinuedDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "rowguid",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "rowguid",
+        "dataType": "String",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ModifiedDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ModifiedDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    }
+  ],
+  "behaviors": [
+    {
+      "name": "SourceRetrieval",
+      "properties": {
+        "errorCountThreshold": "1"
+      },
+      "description": "Used to retrieve data from the source resource",
+      "behaviorType": "SourceRetrieval"
+    },
+    {
+      "name": "TargetInsertUpdate",
+      "properties": {
+        "errorCountThreshold": "1"
+      },
+      "description": "Used to write data to the target resource",
+      "behaviorType": "TargetInsertUpdate"
+    },
+    {
+      "name": "Instrumentation",
+      "properties": {},
+      "description": "Used for pipeline instrumentation",
+      "behaviorType": "Instrumentation"
+    },
+    {
+      "name": "Transformation",
+      "properties": {},
+      "description": "Apply tansformation using DEAL",
+      "behaviorType": "Transformation"
+    }
+  ],
+  "shortName": "Product.csv to Product Pipeline",
+  "globalProperties": {},
+  "sourceResourceToProcess": {
+    "fields": [
+      {
+        "name": "ProductID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "Name",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ProductNumber",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "MakeFlag",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "FinishedGoodsFlag",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "Color",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "SafetyStockLevel",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ReorderPoint",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "StandardCost",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ListPrice",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "Size",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "SizeUnitMeasureCode",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "WeightUnitMeasureCode",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "Weight",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "DaysToManufacture",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ProductLine",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "Class",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "Style",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ProductSubcategoryID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ProductModelID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "SellStartDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "SellEndDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "DiscontinuedDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "rowguid",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ModifiedDate",
+        "dataType": "String",
+        "isNullable": false
+      }
+    ],
+    "server": {
+      "name": "local-file-server",
+      "type": "File",
+      "connectionDetails": {
+        "path": "src/test/resources/pipelines/Product/source",
+        "fileType": "LocalFileServer"
+      }
+    },
+    "strategy": "com.everyarrow.dittoe.io.file.servers.localfile.reader.strategy.CSVReadStrategy",
+    "resourceID": 3,
+    "resourceName": "local-file.csv",
+    "resourceProperties": {}
+  },
+  "targetResourceToProcess": {
+    "fields": [
+      {
+        "name": "ProductID",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "Name",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ProductNumber",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "MakeFlag",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "FinishedGoodsFlag",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "Color",
+        "dataType": "String",
+        "isNullable": true
+      },
+      {
+        "name": "SafetyStockLevel",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "ReorderPoint",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "StandardCost",
+        "dataType": "Decimal",
+        "isNullable": false
+      },
+      {
+        "name": "ListPrice",
+        "dataType": "Decimal",
+        "isNullable": false
+      },
+      {
+        "name": "Size",
+        "dataType": "String",
+        "isNullable": true
+      },
+      {
+        "name": "SizeUnitMeasureCode",
+        "dataType": "String",
+        "isNullable": true
+      },
+      {
+        "name": "WeightUnitMeasureCode",
+        "dataType": "String",
+        "isNullable": true
+      },
+      {
+        "name": "Weight",
+        "dataType": "Decimal",
+        "isNullable": true
+      },
+      {
+        "name": "DaysToManufacture",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "ProductLine",
+        "dataType": "String",
+        "isNullable": true
+      },
+      {
+        "name": "Class",
+        "dataType": "String",
+        "isNullable": true
+      },
+      {
+        "name": "Style",
+        "dataType": "String",
+        "isNullable": true
+      },
+      {
+        "name": "ProductSubcategoryID",
+        "dataType": "Integer",
+        "isNullable": true
+      },
+      {
+        "name": "ProductModelID",
+        "dataType": "Integer",
+        "isNullable": true
+      },
+      {
+        "name": "SellStartDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      },
+      {
+        "name": "SellEndDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": true
+      },
+      {
+        "name": "DiscontinuedDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": true
+      },
+      {
+        "name": "rowguid",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ModifiedDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    ],
+    "server": {
+      "name": "local-file-server",
+      "type": "File",
+      "connectionDetails": {
+        "path": "src/test/resources/pipelines/Product/target",
+        "fileType": "LocalFileServer"
+      }
+    },
+    "strategy": "com.everyarrow.dittoe.io.file.servers.localfile.writer.strategy.CSVWriteStrategy",
+    "resourceID": 4,
+    "resourceName": "local-file.csv",
+    "resourceProperties": {}
+  }
+}

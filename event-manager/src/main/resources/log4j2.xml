@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+  <Properties>
+    <Property name="logRoot">${env:EA_LOG_ROOT:-logs}</Property>
+    <Property name="eventManagerLogDir">${logRoot}/event-manager</Property>
+    <Property name="pattern">%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX} [%t] %-5level %logger{40} - %msg%n</Property>
+  </Properties>
+
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="${pattern}"/>
+    </Console>
+    <RollingFile name="EventManagerFile"
+                 fileName="${eventManagerLogDir}/event-manager.log"
+                 filePattern="${eventManagerLogDir}/archive/event-manager.%d{yyyy-MM-dd}.%i.log.gz">
+      <PatternLayout pattern="${pattern}"/>
+      <Policies>
+        <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+        <SizeBasedTriggeringPolicy size="25 MB"/>
+      </Policies>
+      <DefaultRolloverStrategy max="14"/>
+    </RollingFile>
+  </Appenders>
+
+  <Loggers>
+    <Logger name="com.everyarrow.eventengine" level="debug"/>
+    <Logger name="org.eclipse.jetty" level="info"/>
+    <Logger name="org.apache.activemq" level="warn"/>
+    <Logger name="org.postgresql" level="info"/>
+    <Root level="info">
+      <AppenderRef ref="Console"/>
+      <AppenderRef ref="EventManagerFile"/>
+    </Root>
+  </Loggers>
+</Configuration>

@@ -1,0 +1,312 @@
+{
+  "id": "7ba3c9dc-b21a-4ec9-9d7b-d1ca8fa98e95",
+  "S2TMap": [
+    {
+      "sourceField": {
+        "name": "SpecialOfferID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "SpecialOfferID",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "Description",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "Description",
+        "dataType": "String",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "DiscountPct",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "DiscountPct",
+        "dataType": "Decimal",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "Type",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "Type",
+        "dataType": "String",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "Category",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "Category",
+        "dataType": "String",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "StartDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "StartDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "EndDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "EndDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "MinQty",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "MinQty",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "MaxQty",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "MaxQty",
+        "dataType": "Integer",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "rowguid",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "rowguid",
+        "dataType": "String",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ModifiedDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ModifiedDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    }
+  ],
+  "behaviors": [
+    {
+      "name": "SourceRetrieval",
+      "properties": {
+        "errorCountThreshold": "1"
+      },
+      "description": "Used to retrieve data from the source resource",
+      "behaviorType": "SourceRetrieval"
+    },
+    {
+      "name": "TargetInsertUpdate",
+      "properties": {
+        "errorCountThreshold": "1"
+      },
+      "description": "Used to write data to the target resource",
+      "behaviorType": "TargetInsertUpdate"
+    },
+    {
+      "name": "Instrumentation",
+      "properties": {},
+      "description": "Used for pipeline instrumentation",
+      "behaviorType": "Instrumentation"
+    },
+    {
+      "name": "Transformation",
+      "properties": {},
+      "description": "Apply tansformation using DEAL",
+      "behaviorType": "Transformation"
+    }
+  ],
+  "shortName": "SpecialOffer to SpecialOffer SQLite Pipeline",
+  "globalProperties": {},
+  "sourceResourceToProcess": {
+    "fields": [
+      {
+        "name": "SpecialOfferID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "Description",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "DiscountPct",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "Type",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "Category",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "StartDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "EndDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "MinQty",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "MaxQty",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "rowguid",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ModifiedDate",
+        "dataType": "String",
+        "isNullable": false
+      }
+    ],
+    "server": {
+      "name": "local-file-server",
+      "type": "File",
+      "connectionDetails": {
+        "path": "src/test/resources/pipelines/SpecialOffer/source",
+        "fileType": "LocalFileServer"
+      }
+    },
+    "strategy": "com.everyarrow.dittoe.io.file.servers.localfile.reader.strategy.CSVReadStrategy",
+    "resourceID": 3,
+    "resourceName": "local-file.csv",
+    "resourceProperties": {}
+  },
+  "targetResourceToProcess": {
+    "fields": [
+      {
+        "name": "SpecialOfferID",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "Description",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "DiscountPct",
+        "dataType": "Decimal",
+        "isNullable": false
+      },
+      {
+        "name": "Type",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "Category",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "StartDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      },
+      {
+        "name": "EndDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      },
+      {
+        "name": "MinQty",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "MaxQty",
+        "dataType": "Integer",
+        "isNullable": true
+      },
+      {
+        "name": "rowguid",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ModifiedDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    ],
+    "server": {
+      "name": "sqlite",
+      "type": "Database",
+      "connectionDetails": {
+        "path": "src/test/resources/sqlite/target.db",
+        "databaseType": "SQLiteServer"
+      }
+    },
+    "strategy": "com.everyarrow.dittoe.io.database.servers.jdbc.writer.strategy.InsertStrategy",
+    "resourceID": 4,
+    "resourceName": "specialoffer",
+    "resourceProperties": {}
+  },
+  "templateType": "FileToDatabase"
+}

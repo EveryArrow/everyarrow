@@ -1,0 +1,133 @@
+# eclipse
+.classpath
+.project
+.settings
+
+# maven
+target
+*/src/main/java/META-INF/
+*.versionsBackup
+*.releaseBackup
+bin/
+
+# common junk
+*.log
+*.diff
+*.patch
+*.sw[a-p]
+*.bak
+*.backup
+*.debug
+*.dump
+.attach_pid*
+
+# vim 
+.*.sw[a-p]
+*~
+~*
+
+# intellij / android studio
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Mac filesystem dust
+.DS_Store
+
+# pmd
+.pmdruleset
+.pmd
+
+# netbeans
+/nbproject
+
+# merge tooling
+*.orig
+
+#
+*.pyc
+
+/__pycache__/**
+/.venv
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+.env
+*.egg-info/
+sdk/python/pipelines/
+
+# C# / .NET
+[Bb]in/
+[Oo]bj/
+*.suo
+*.user
+*.userprefs
+*.csproj.user
+*.pubxml
+*.nupkg
+*.snupkg
+*.json
+!appsettings.json
+!pmd.json
+!schemas.json
+artifacts/
+
+# C / C++
+build/
+*/build/
+sdk/**/build/
+*_bin
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dylib
+*.dll
+*.out
+*.app
+test_integration
+cmake-build-debug/
+.vscode/
+
+# VBA / Office
+~$*
+*.exd
+
+# DITTOE Engine / Java
+*.class
+*.jar
+!src/main/resources/*.jar
+!lib/*.jar
+!dittoe-engine/lib/*.jar
+!dittoe-engine/target/*.jar
+
+################################################################################
+# SECRETS & CREDENTIALS
+################################################################################
+
+# Environment files
+.env
+*.env
+!*.env.example
+
+# Certificates and keys
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+
+# Credential files
+**/credentials.json
+**/service-account*.json
+**/firebase*.json
+**/gcloud*.json
+kubeconfig
+.npmrc
+

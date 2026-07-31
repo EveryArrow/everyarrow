@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.everyarrow</groupId>
+    <artifactId>everyarrow</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>EveryArrow</name>
+    <description>The public EveryArrow platform: Event Manager, DITTOE, and shared Utilities.</description>
+
+    <licenses>
+        <license>
+            <name>Business Source License 1.1</name>
+            <url>https://spdx.org/licenses/BUSL-1.1.html</url>
+            <distribution>repo</distribution>
+            <comments>Mixed-license repository; see LICENSES.md for path-specific terms.</comments>
+        </license>
+    </licenses>
+
+    <modules>
+        <module>utilities</module>
+        <module>dittoe-schema</module>
+        <module>dittoe-engine</module>
+        <module>event-manager</module>
+    </modules>
+</project>

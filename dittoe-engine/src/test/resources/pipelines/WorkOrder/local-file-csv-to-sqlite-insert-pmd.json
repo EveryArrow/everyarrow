@@ -1,0 +1,290 @@
+{
+  "id": "05ed7795-8f9e-4e63-8bf6-87b0ddcb25aa",
+  "S2TMap": [
+    {
+      "sourceField": {
+        "name": "WorkOrderID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "WorkOrderID",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ProductID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ProductID",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "OrderQty",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "OrderQty",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "StockedQty",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "StockedQty",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ScrappedQty",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ScrappedQty",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "StartDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "StartDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "EndDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "EndDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "DueDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "DueDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ScrapReasonID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ScrapReasonID",
+        "dataType": "Integer",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ModifiedDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ModifiedDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    }
+  ],
+  "behaviors": [
+    {
+      "name": "SourceRetrieval",
+      "properties": {
+        "errorCountThreshold": "1"
+      },
+      "description": "Used to retrieve data from the source resource",
+      "behaviorType": "SourceRetrieval"
+    },
+    {
+      "name": "TargetInsertUpdate",
+      "properties": {
+        "errorCountThreshold": "1"
+      },
+      "description": "Used to write data to the target resource",
+      "behaviorType": "TargetInsertUpdate"
+    },
+    {
+      "name": "Instrumentation",
+      "properties": {},
+      "description": "Used for pipeline instrumentation",
+      "behaviorType": "Instrumentation"
+    },
+    {
+      "name": "Transformation",
+      "properties": {},
+      "description": "Apply tansformation using DEAL",
+      "behaviorType": "Transformation"
+    }
+  ],
+  "shortName": "WorkOrder to WorkOrder SQLite Pipeline",
+  "globalProperties": {},
+  "sourceResourceToProcess": {
+    "fields": [
+      {
+        "name": "WorkOrderID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ProductID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "OrderQty",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "StockedQty",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ScrappedQty",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "StartDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "EndDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "DueDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ScrapReasonID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ModifiedDate",
+        "dataType": "String",
+        "isNullable": false
+      }
+    ],
+    "server": {
+      "name": "local-file-server",
+      "type": "File",
+      "connectionDetails": {
+        "path": "src/test/resources/pipelines/WorkOrder/source",
+        "fileType": "LocalFileServer"
+      }
+    },
+    "strategy": "com.everyarrow.dittoe.io.file.servers.localfile.reader.strategy.CSVReadStrategy",
+    "resourceID": 3,
+    "resourceName": "local-file.csv",
+    "resourceProperties": {}
+  },
+  "targetResourceToProcess": {
+    "fields": [
+      {
+        "name": "WorkOrderID",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "ProductID",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "OrderQty",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "StockedQty",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "ScrappedQty",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "StartDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      },
+      {
+        "name": "EndDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": true
+      },
+      {
+        "name": "DueDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      },
+      {
+        "name": "ScrapReasonID",
+        "dataType": "Integer",
+        "isNullable": true
+      },
+      {
+        "name": "ModifiedDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    ],
+    "server": {
+      "name": "sqlite",
+      "type": "Database",
+      "connectionDetails": {
+        "path": "src/test/resources/sqlite/target.db",
+        "databaseType": "SQLiteServer"
+      }
+    },
+    "strategy": "com.everyarrow.dittoe.io.database.servers.jdbc.writer.strategy.InsertStrategy",
+    "resourceID": 4,
+    "resourceName": "workorder",
+    "resourceProperties": {}
+  },
+  "templateType": "FileToDatabase"
+}

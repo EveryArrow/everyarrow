@@ -1,0 +1,180 @@
+{
+  "id": "adc9ebd9-eb84-4a15-9046-a6aacf732274",
+  "S2TMap": [
+    {
+      "sourceField": {
+        "name": "BusinessEntityID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "BusinessEntityID",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "RateChangeDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "RateChangeDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "Rate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "Rate",
+        "dataType": "Decimal",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "PayFrequency",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "PayFrequency",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ModifiedDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ModifiedDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    }
+  ],
+  "behaviors": [
+    {
+      "name": "SourceRetrieval",
+      "properties": {
+        "errorCountThreshold": "1"
+      },
+      "description": "Used to retrieve data from the source resource",
+      "behaviorType": "SourceRetrieval"
+    },
+    {
+      "name": "TargetInsertUpdate",
+      "properties": {
+        "errorCountThreshold": "1"
+      },
+      "description": "Used to write data to the target resource",
+      "behaviorType": "TargetInsertUpdate"
+    },
+    {
+      "name": "Instrumentation",
+      "properties": {},
+      "description": "Used for pipeline instrumentation",
+      "behaviorType": "Instrumentation"
+    },
+    {
+      "name": "Transformation",
+      "properties": {},
+      "description": "Apply tansformation using DEAL",
+      "behaviorType": "Transformation"
+    }
+  ],
+  "shortName": "EmployeePayHistory to EmployeePayHistory SQLite Pipeline",
+  "globalProperties": {},
+  "sourceResourceToProcess": {
+    "fields": [
+      {
+        "name": "BusinessEntityID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "RateChangeDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "Rate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "PayFrequency",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ModifiedDate",
+        "dataType": "String",
+        "isNullable": false
+      }
+    ],
+    "server": {
+      "name": "local-file-server",
+      "type": "File",
+      "connectionDetails": {
+        "path": "src/test/resources/pipelines/EmployeePayHistory/source",
+        "fileType": "LocalFileServer"
+      }
+    },
+    "strategy": "com.everyarrow.dittoe.io.file.servers.localfile.reader.strategy.CSVReadStrategy",
+    "resourceID": 3,
+    "resourceName": "local-file.csv",
+    "resourceProperties": {}
+  },
+  "targetResourceToProcess": {
+    "fields": [
+      {
+        "name": "BusinessEntityID",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "RateChangeDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      },
+      {
+        "name": "Rate",
+        "dataType": "Decimal",
+        "isNullable": false
+      },
+      {
+        "name": "PayFrequency",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "ModifiedDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    ],
+    "server": {
+      "name": "sqlite",
+      "type": "Database",
+      "connectionDetails": {
+        "path": "src/test/resources/sqlite/target.db",
+        "databaseType": "SQLiteServer"
+      }
+    },
+    "strategy": "com.everyarrow.dittoe.io.database.servers.jdbc.writer.strategy.InsertStrategy",
+    "resourceID": 4,
+    "resourceName": "employeepayhistory",
+    "resourceProperties": {}
+  },
+  "templateType": "FileToDatabase"
+}

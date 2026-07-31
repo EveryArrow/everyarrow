@@ -1,0 +1,201 @@
+{
+  "id": "b28d8b85-ffe5-4690-915b-fccabf38136a",
+  "S2TMap": [
+    {
+      "sourceField": {
+        "name": "BusinessEntityID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "BusinessEntityID",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "Name",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "Name",
+        "dataType": "String",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "SalesPersonID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "SalesPersonID",
+        "dataType": "Integer",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "Demographics",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "Demographics",
+        "dataType": "String",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "rowguid",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "rowguid",
+        "dataType": "String",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ModifiedDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ModifiedDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    }
+  ],
+  "behaviors": [
+    {
+      "name": "SourceRetrieval",
+      "properties": {
+        "errorCountThreshold": "1"
+      },
+      "description": "Used to retrieve data from the source resource",
+      "behaviorType": "SourceRetrieval"
+    },
+    {
+      "name": "TargetInsertUpdate",
+      "properties": {
+        "errorCountThreshold": "1"
+      },
+      "description": "Used to write data to the target resource",
+      "behaviorType": "TargetInsertUpdate"
+    },
+    {
+      "name": "Instrumentation",
+      "properties": {},
+      "description": "Used for pipeline instrumentation",
+      "behaviorType": "Instrumentation"
+    },
+    {
+      "name": "Transformation",
+      "properties": {},
+      "description": "Apply tansformation using DEAL",
+      "behaviorType": "Transformation"
+    }
+  ],
+  "shortName": "Store.csv to Store Pipeline",
+  "globalProperties": {},
+  "sourceResourceToProcess": {
+    "fields": [
+      {
+        "name": "BusinessEntityID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "Name",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "SalesPersonID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "Demographics",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "rowguid",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ModifiedDate",
+        "dataType": "String",
+        "isNullable": false
+      }
+    ],
+    "server": {
+      "name": "local-file-server",
+      "type": "File",
+      "connectionDetails": {
+        "path": "src/test/resources/pipelines/Store/source",
+        "fileType": "LocalFileServer"
+      }
+    },
+    "strategy": "com.everyarrow.dittoe.io.file.servers.localfile.reader.strategy.CSVReadStrategy",
+    "resourceID": 3,
+    "resourceName": "local-file.csv",
+    "resourceProperties": {}
+  },
+  "targetResourceToProcess": {
+    "fields": [
+      {
+        "name": "BusinessEntityID",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "Name",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "SalesPersonID",
+        "dataType": "Integer",
+        "isNullable": true
+      },
+      {
+        "name": "Demographics",
+        "dataType": "String",
+        "isNullable": true
+      },
+      {
+        "name": "rowguid",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ModifiedDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    ],
+    "server": {
+      "name": "local-file-server",
+      "type": "File",
+      "connectionDetails": {
+        "path": "src/test/resources/pipelines/Store/target",
+        "fileType": "LocalFileServer"
+      }
+    },
+    "strategy": "com.everyarrow.dittoe.io.file.servers.localfile.writer.strategy.CSVWriteStrategy",
+    "resourceID": 4,
+    "resourceName": "local-file.csv",
+    "resourceProperties": {}
+  }
+}

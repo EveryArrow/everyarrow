@@ -1,0 +1,11 @@
+# Release-sensitive runtime surfaces.
+* @EveryArrow/security-reviewers
+
+/src/main/java/com/everyarrow/eventengine/core/hooks/ @EveryArrow/security-reviewers
+/src/main/java/com/everyarrow/eventengine/core/adapters/external/ @EveryArrow/security-reviewers
+/src/main/java/com/everyarrow/eventengine/core/adapters/internal/ @EveryArrow/security-reviewers
+/src/main/java/com/everyarrow/eventengine/core/services/plugins/ @EveryArrow/security-reviewers
+/src/main/java/com/everyarrow/eventengine/core/services/registry/ @EveryArrow/security-reviewers
+/src/main/java/com/everyarrow/eventengine/core/services/runtime/ @EveryArrow/security-reviewers
+/src/main/resources/ @EveryArrow/security-reviewers
+/pom.xml @EveryArrow/security-reviewers

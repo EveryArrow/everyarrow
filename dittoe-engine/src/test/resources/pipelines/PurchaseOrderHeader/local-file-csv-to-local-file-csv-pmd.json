@@ -1,0 +1,355 @@
+{
+  "id": "b6b9d0e9-ead2-4fd8-a1d5-d556d759ab65",
+  "S2TMap": [
+    {
+      "sourceField": {
+        "name": "PurchaseOrderID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "PurchaseOrderID",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "RevisionNumber",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "RevisionNumber",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "Status",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "Status",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "EmployeeID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "EmployeeID",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "VendorID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "VendorID",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ShipMethodID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ShipMethodID",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "OrderDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "OrderDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ShipDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ShipDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "SubTotal",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "SubTotal",
+        "dataType": "Decimal",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "TaxAmt",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "TaxAmt",
+        "dataType": "Decimal",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "Freight",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "Freight",
+        "dataType": "Decimal",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "TotalDue",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "TotalDue",
+        "dataType": "Decimal",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ModifiedDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ModifiedDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    }
+  ],
+  "behaviors": [
+    {
+      "name": "SourceRetrieval",
+      "properties": {
+        "errorCountThreshold": "1"
+      },
+      "description": "Used to retrieve data from the source resource",
+      "behaviorType": "SourceRetrieval"
+    },
+    {
+      "name": "TargetInsertUpdate",
+      "properties": {
+        "errorCountThreshold": "1"
+      },
+      "description": "Used to write data to the target resource",
+      "behaviorType": "TargetInsertUpdate"
+    },
+    {
+      "name": "Instrumentation",
+      "properties": {},
+      "description": "Used for pipeline instrumentation",
+      "behaviorType": "Instrumentation"
+    },
+    {
+      "name": "Transformation",
+      "properties": {},
+      "description": "Apply tansformation using DEAL",
+      "behaviorType": "Transformation"
+    }
+  ],
+  "shortName": "PurchaseOrderHeader.csv to PurchaseOrderHeader Pipeline",
+  "globalProperties": {},
+  "sourceResourceToProcess": {
+    "fields": [
+      {
+        "name": "PurchaseOrderID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "RevisionNumber",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "Status",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "EmployeeID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "VendorID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ShipMethodID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "OrderDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ShipDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "SubTotal",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "TaxAmt",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "Freight",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "TotalDue",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ModifiedDate",
+        "dataType": "String",
+        "isNullable": false
+      }
+    ],
+    "server": {
+      "name": "local-file-server",
+      "type": "File",
+      "connectionDetails": {
+        "path": "src/test/resources/pipelines/PurchaseOrderHeader/source",
+        "fileType": "LocalFileServer"
+      }
+    },
+    "strategy": "com.everyarrow.dittoe.io.file.servers.localfile.reader.strategy.CSVReadStrategy",
+    "resourceID": 3,
+    "resourceName": "local-file.csv",
+    "resourceProperties": {}
+  },
+  "targetResourceToProcess": {
+    "fields": [
+      {
+        "name": "PurchaseOrderID",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "RevisionNumber",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "Status",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "EmployeeID",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "VendorID",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "ShipMethodID",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "OrderDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      },
+      {
+        "name": "ShipDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": true
+      },
+      {
+        "name": "SubTotal",
+        "dataType": "Decimal",
+        "isNullable": false
+      },
+      {
+        "name": "TaxAmt",
+        "dataType": "Decimal",
+        "isNullable": false
+      },
+      {
+        "name": "Freight",
+        "dataType": "Decimal",
+        "isNullable": false
+      },
+      {
+        "name": "TotalDue",
+        "dataType": "Decimal",
+        "isNullable": false
+      },
+      {
+        "name": "ModifiedDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    ],
+    "server": {
+      "name": "local-file-server",
+      "type": "File",
+      "connectionDetails": {
+        "path": "src/test/resources/pipelines/PurchaseOrderHeader/target",
+        "fileType": "LocalFileServer"
+      }
+    },
+    "strategy": "com.everyarrow.dittoe.io.file.servers.localfile.writer.strategy.CSVWriteStrategy",
+    "resourceID": 4,
+    "resourceName": "local-file.csv",
+    "resourceProperties": {}
+  }
+}

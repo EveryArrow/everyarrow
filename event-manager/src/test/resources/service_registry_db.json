@@ -1,0 +1,74 @@
+[
+  {
+    "database": "EveryArrow",
+    "schema": "registry",
+    "function": "batch_event",
+    "serviceType": "everyarrow.registry.batch_event",
+    "httpMethod": "POST",
+    "routePath": "/batch-event",
+    "description": "Test registry fixture for generic DB dispatch",
+    "annotations": {
+      "call": {
+        "applicationKey": "TESTS"
+      },
+      "secured": {
+        "roles": ["system"],
+        "scopes": ["tests:write"]
+      }
+    }
+  },
+  {
+    "database": "EveryArrow",
+    "schema": "app_security",
+    "function": "customer_create",
+    "serviceType": "security.access_control.customer_create",
+    "httpMethod": "POST",
+    "routePath": "/customer",
+    "description": "Test registry fixture for customer creation",
+    "annotations": {
+      "call": {
+        "applicationKey": "TESTS"
+      },
+      "secured": {
+        "roles": ["system"],
+        "scopes": ["tests:write"]
+      }
+    }
+  },
+  {
+    "database": "EveryArrow",
+    "schema": "entitlement",
+    "function": "plan_create",
+    "serviceType": "everyarrow.entitlement.plan_create",
+    "httpMethod": "POST",
+    "routePath": "/entitlement/plan",
+    "description": "Test registry fixture for entitlement plan creation",
+    "annotations": {
+      "call": {
+        "applicationKey": "TESTS"
+      },
+      "secured": {
+        "roles": ["system"],
+        "scopes": ["tests:write"]
+      }
+    }
+  },
+  {
+    "database": "EveryArrow",
+    "schema": "app_security",
+    "function": "customer_delete",
+    "serviceType": "security.access_control.customer_delete",
+    "httpMethod": "DELETE",
+    "routePath": "/customer/{id}",
+    "description": "Test registry fixture for customer deletion",
+    "annotations": {
+      "call": {
+        "applicationKey": "TESTS"
+      },
+      "secured": {
+        "roles": ["system"],
+        "scopes": ["tests:delete"]
+      }
+    }
+  }
+]

@@ -1,0 +1,442 @@
+{
+  "version": 1,
+  "boundary": {
+    "pmdSource": "generated",
+    "metadataDiscoveryOwner": "swarm",
+    "engineResponsibility": "data_io"
+  },
+  "dataset": {
+    "fixture": "tests/matrix/fixtures/canonical.csv",
+    "expectedRows": 4,
+    "fields": [
+      { "name": "id", "dataType": "String", "isNullable": false },
+      { "name": "name", "dataType": "String", "isNullable": false },
+      { "name": "amount", "dataType": "String", "isNullable": true },
+      { "name": "active", "dataType": "String", "isNullable": false },
+      { "name": "updated_at", "dataType": "String", "isNullable": false },
+      { "name": "notes", "dataType": "String", "isNullable": true }
+    ]
+  },
+  "profiles": {
+    "smoke": ["local-file", "sqlite", "postgresql", "mysql", "s3", "gcs", "azure-blob"],
+    "docker-full": ["local-file", "sqlite", "postgresql", "mysql", "mssql", "s3", "gcs", "azure-blob", "ftp", "sftp", "ibm-cos", "digitalocean-spaces"],
+    "remote-full": ["bigquery", "snowflake", "dropbox", "google-drive", "oracle-object-storage"],
+    "negative": ["local-file", "sqlite", "postgresql", "mysql", "mssql", "s3", "gcs", "azure-blob", "ftp", "sftp", "ibm-cos", "digitalocean-spaces"]
+  },
+  "scenarioProfiles": {
+    "smoke": ["canonical-smoke"],
+    "docker-full": ["canonical-smoke"],
+    "remote-full": ["canonical-smoke"],
+    "negative": ["missing-source-file", "missing-source-table"]
+  },
+  "scenarios": {
+    "canonical-smoke": {
+      "expectedSuccess": true
+    },
+    "missing-source-file": {
+      "expectedSuccess": false,
+      "allowedSources": ["local-file", "s3", "gcs", "azure-blob", "ftp", "sftp", "ibm-cos", "digitalocean-spaces"],
+      "allowedTargets": ["local-file"],
+      "errorContainsAny": ["does not exist", "not found", "404", "no such file", "no blob found", "failed to retrieve ftp file"],
+      "connectors": {
+        "local-file": {
+          "source": {
+            "resourceName": "missing/{case}.csv"
+          }
+        },
+        "s3": {
+          "source": {
+            "resourceName": "source/missing-{case}.csv"
+          }
+        },
+        "gcs": {
+          "source": {
+            "resourceName": "source/missing-{case}.csv",
+            "resourceProperties": {
+              "gcsObject": "source/missing-{case}.csv"
+            }
+          }
+        },
+        "azure-blob": {
+          "source": {
+            "resourceName": "source/missing-{case}.csv",
+            "resourceProperties": {
+              "azureBlob": "source/missing-{case}.csv"
+            }
+          }
+        },
+        "ftp": {
+          "source": {
+            "resourceName": "missing-{case}.csv"
+          }
+        },
+        "sftp": {
+          "source": {
+            "resourceName": "missing-{case}.csv"
+          }
+        },
+        "ibm-cos": {
+          "source": {
+            "resourceName": "source/missing-{case}.csv",
+            "resourceProperties": {
+              "ibmObject": "source/missing-{case}.csv"
+            }
+          }
+        },
+        "digitalocean-spaces": {
+          "source": {
+            "resourceName": "source/missing-{case}.csv",
+            "resourceProperties": {
+              "doSpacesObject": "source/missing-{case}.csv"
+            }
+          }
+        }
+      }
+    },
+    "missing-source-table": {
+      "expectedSuccess": false,
+      "allowedSources": ["sqlite", "postgresql", "mysql", "mssql"],
+      "allowedTargets": ["local-file"],
+      "errorContainsAny": ["does not exist", "not found", "invalid object name", "no such table", "doesn't exist"],
+      "connectors": {
+        "sqlite": {
+          "source": {
+            "resourceName": "missing_source"
+          }
+        },
+        "postgresql": {
+          "source": {
+            "resourceName": "missing_source"
+          }
+        },
+        "mysql": {
+          "source": {
+            "resourceName": "missing_source"
+          }
+        },
+        "mssql": {
+          "source": {
+            "resourceName": "missing_source"
+          }
+        }
+      }
+    }
+  },
+  "connectors": {
+    "local-file": {
+      "category": "file",
+      "implemented": true,
+      "local": true,
+      "serverType": "File",
+      "concreteServer": "LocalFileServer",
+      "serverClass": "com.everyarrow.dittoe.io.file.servers.localfile.LocalFileServer",
+      "sourceStrategy": "com.everyarrow.dittoe.io.file.servers.localfile.reader.strategy.CSVReadStrategy",
+      "targetStrategy": "com.everyarrow.dittoe.io.file.servers.localfile.writer.strategy.CSVWriteStrategy",
+      "source": {
+        "connectionDetails": { "path": "target/dittoe-matrix/local-file/source" },
+        "resourceName": "canonical.csv",
+        "resourceProperties": {}
+      },
+      "target": {
+        "connectionDetails": { "path": "target/dittoe-matrix/local-file/target" },
+        "resourceName": "{case}.csv",
+        "resourceProperties": {}
+      }
+    },
+    "sqlite": {
+      "category": "database",
+      "implemented": true,
+      "local": true,
+      "serverType": "Database",
+      "concreteServer": "SQLiteServer",
+      "databaseType": "SQLiteServer",
+      "serverClass": "com.everyarrow.dittoe.io.database.servers.sqlite.SQLiteServer",
+      "sourceStrategy": "com.everyarrow.dittoe.io.database.servers.jdbc.reader.strategy.SelectStrategy",
+      "targetStrategy": "com.everyarrow.dittoe.io.database.servers.jdbc.writer.strategy.InsertStrategy",
+      "connectionDetails": { "path": "target/dittoe-matrix/sqlite/dittoe-matrix.db" },
+      "source": { "resourceName": "canonical_source", "resourceProperties": {} },
+      "target": { "resourceName": "canonical_target", "resourceProperties": {} }
+    },
+    "postgresql": {
+      "category": "database",
+      "implemented": true,
+      "local": true,
+      "dockerService": "postgres-source/postgres-target",
+      "serverType": "Database",
+      "concreteServer": "PostgreSQLServer",
+      "databaseType": "PostgreSQLServer",
+      "serverClass": "com.everyarrow.dittoe.io.database.servers.postgresql.PostgreSQLServer",
+      "sourceStrategy": "com.everyarrow.dittoe.io.database.servers.jdbc.reader.strategy.SelectStrategy",
+      "targetStrategy": "com.everyarrow.dittoe.io.database.servers.postgresql.writer.strategy.UpsertOnConflictStrategy",
+      "source": {
+        "connectionDetails": {
+          "host": "localhost",
+          "port": "5433",
+          "database": "adventureworks",
+          "user": "dittoe",
+          "password": "dittoe123"
+        },
+        "resourceName": "canonical_source",
+        "resourceProperties": { "schema": "matrix" }
+      },
+      "target": {
+        "connectionDetails": {
+          "host": "localhost",
+          "port": "5434",
+          "database": "adventureworks",
+          "user": "dittoe",
+          "password": "dittoe123"
+        },
+        "resourceName": "canonical_target",
+        "resourceProperties": {
+          "schema": "matrix",
+          "upsertConflictConstraint": "canonical_target_pkey"
+        }
+      }
+    },
+    "mysql": {
+      "category": "database",
+      "implemented": true,
+      "local": true,
+      "dockerService": "mysql-source/mysql-target",
+      "serverType": "Database",
+      "concreteServer": "MySQLServer",
+      "databaseType": "MySQLServer",
+      "serverClass": "com.everyarrow.dittoe.io.database.servers.mysql.MySQLServer",
+      "sourceStrategy": "com.everyarrow.dittoe.io.database.servers.jdbc.reader.strategy.SelectStrategy",
+      "targetStrategy": "com.everyarrow.dittoe.io.database.servers.jdbc.writer.strategy.InsertStrategy",
+      "source": {
+        "connectionDetails": {
+          "host": "localhost",
+          "port": "3307",
+          "database": "adventureworks",
+          "user": "dittoe",
+          "password": "dittoe123"
+        },
+        "resourceName": "canonical_source",
+        "resourceProperties": {}
+      },
+      "target": {
+        "connectionDetails": {
+          "host": "localhost",
+          "port": "3308",
+          "database": "adventureworks",
+          "user": "dittoe",
+          "password": "dittoe123"
+        },
+        "resourceName": "canonical_target",
+        "resourceProperties": {}
+      }
+    },
+    "mssql": {
+      "category": "database",
+      "implemented": true,
+      "local": true,
+      "dockerService": "mssql",
+      "serverType": "Database",
+      "concreteServer": "MSSQLServer",
+      "databaseType": "MSSQLServer",
+      "serverClass": "com.everyarrow.dittoe.io.database.servers.mssql.MSSQLServer",
+      "sourceStrategy": "com.everyarrow.dittoe.io.database.servers.jdbc.reader.strategy.SelectStrategy",
+      "targetStrategy": "com.everyarrow.dittoe.io.database.servers.mssql.writer.strategy.MergeStrategy",
+      "connectionDetails": {
+        "host": "localhost",
+        "port": "14333",
+        "database": "adventureworks",
+        "user": "sa",
+        "password": "Dittoe12345!",
+        "encrypted": "false",
+        "trustServerCertificate": "true"
+      },
+      "source": { "resourceName": "canonical_source", "resourceProperties": { "schema": "dbo" } },
+      "target": { "resourceName": "canonical_target", "resourceProperties": { "schema": "dbo", "mergeMatchColumns": "id" } }
+    },
+    "s3": {
+      "category": "file",
+      "implemented": true,
+      "local": true,
+      "dockerService": "minio",
+      "serverType": "File",
+      "concreteServer": "S3Server",
+      "serverClass": "com.everyarrow.dittoe.io.file.servers.s3.S3Server",
+      "sourceStrategy": "com.everyarrow.dittoe.io.file.servers.s3.reader.strategy.CSVReadStrategy",
+      "targetStrategy": "com.everyarrow.dittoe.io.file.servers.s3.writer.strategy.CSVWriteStrategy",
+      "connectionDetails": {
+        "s3AccessKey": "dittoe",
+        "s3SecretKey": "dittoe123",
+        "s3Region": "us-east-1",
+        "s3Endpoint": "http://localhost:9000",
+        "s3PathStyleAccess": "true"
+      },
+      "resourceProperties": { "bucket": "dittoe-matrix" },
+      "source": { "resourceName": "source/canonical.csv", "resourceProperties": {} },
+      "target": { "resourceName": "target/{case}.csv", "resourceProperties": {} }
+    },
+    "ibm-cos": {
+      "category": "file",
+      "implemented": true,
+      "local": true,
+      "dockerService": "minio",
+      "serverType": "File",
+      "concreteServer": "IbmServer",
+      "serverClass": "com.everyarrow.dittoe.io.file.servers.ibm.IbmServer",
+      "sourceStrategy": "com.everyarrow.dittoe.io.file.servers.ibm.reader.strategy.CSVReadStrategy",
+      "targetStrategy": "com.everyarrow.dittoe.io.file.servers.ibm.writer.strategy.CSVWriteStrategy",
+      "resourceProperties": {
+        "ibmApiKey": "dittoe",
+        "ibmServiceInstanceId": "dittoe123",
+        "ibmRegion": "us-east-1",
+        "ibmEndpointUrl": "http://localhost:9000",
+        "ibmBucket": "dittoe-matrix"
+      },
+      "source": { "resourceName": "source/canonical.csv", "resourceProperties": { "ibmObject": "source/canonical.csv" } },
+      "target": { "resourceName": "target/{case}.csv", "resourceProperties": { "ibmObject": "target/{case}.csv" } }
+    },
+    "digitalocean-spaces": {
+      "category": "file",
+      "implemented": true,
+      "local": true,
+      "dockerService": "minio",
+      "serverType": "File",
+      "concreteServer": "DigitalOceanServer",
+      "serverClass": "com.everyarrow.dittoe.io.file.servers.digitalocean.DigitalOceanServer",
+      "sourceStrategy": "com.everyarrow.dittoe.io.file.servers.digitalocean.reader.strategy.CSVReadStrategy",
+      "targetStrategy": "com.everyarrow.dittoe.io.file.servers.digitalocean.writer.strategy.CSVWriteStrategy",
+      "resourceProperties": {
+        "doSpacesAccessKey": "dittoe",
+        "doSpacesSecretKey": "dittoe123",
+        "doSpacesRegion": "us-east-1",
+        "doSpacesEndpoint": "http://localhost:9000",
+        "doSpacesBucket": "dittoe-matrix"
+      },
+      "source": { "resourceName": "source/canonical.csv", "resourceProperties": { "doSpacesObject": "source/canonical.csv" } },
+      "target": { "resourceName": "target/{case}.csv", "resourceProperties": { "doSpacesObject": "target/{case}.csv" } }
+    },
+    "gcs": {
+      "category": "file",
+      "implemented": true,
+      "local": true,
+      "dockerService": "fake-gcs",
+      "serverType": "File",
+      "concreteServer": "GCSServer",
+      "serverClass": "com.everyarrow.dittoe.io.file.servers.gcs.GCSServer",
+      "sourceStrategy": "com.everyarrow.dittoe.io.file.servers.gcs.reader.strategy.CSVReadStrategy",
+      "targetStrategy": "com.everyarrow.dittoe.io.file.servers.gcs.writer.strategy.CSVWriteStrategy",
+      "resourceProperties": {
+        "gcsEndpoint": "http://localhost:4443",
+        "gcsProjectId": "dittoe-test",
+        "gcsBucket": "dittoe-matrix"
+      },
+      "source": { "resourceName": "source/canonical.csv", "resourceProperties": { "gcsObject": "source/canonical.csv" } },
+      "target": { "resourceName": "target/{case}.csv", "resourceProperties": { "gcsObject": "target/{case}.csv" } }
+    },
+    "azure-blob": {
+      "category": "file",
+      "implemented": true,
+      "local": true,
+      "dockerService": "azurite",
+      "serverType": "File",
+      "concreteServer": "AzureServer",
+      "serverClass": "com.everyarrow.dittoe.io.file.servers.azure.AzureServer",
+      "sourceStrategy": "com.everyarrow.dittoe.io.file.servers.azure.reader.strategy.CSVReadStrategy",
+      "targetStrategy": "com.everyarrow.dittoe.io.file.servers.azure.writer.strategy.CSVWriteStrategy",
+      "resourceProperties": {
+        "azureConnectionString": "UseDevelopmentStorage=true",
+        "azureContainer": "dittoe-matrix"
+      },
+      "source": { "resourceName": "source/canonical.csv", "resourceProperties": { "azureBlob": "source/canonical.csv" } },
+      "target": { "resourceName": "target/{case}.csv", "resourceProperties": { "azureBlob": "target/{case}.csv" } }
+    },
+    "ftp": {
+      "category": "file",
+      "implemented": true,
+      "local": true,
+      "dockerService": "ftp",
+      "serverType": "File",
+      "concreteServer": "FTPServer",
+      "serverClass": "com.everyarrow.dittoe.io.file.servers.ftp.FTPServer",
+      "sourceStrategy": "com.everyarrow.dittoe.io.file.servers.ftp.reader.strategy.CSVReadStrategy",
+      "targetStrategy": "com.everyarrow.dittoe.io.file.servers.ftp.writer.strategy.CSVWriteStrategy",
+      "connectionDetails": {
+        "ftpHost": "localhost",
+        "ftpPort": "2121",
+        "ftpUser": "dittoe",
+        "ftpPassword": "dittoe123"
+      },
+      "source": { "resourceName": "source/canonical.csv", "resourceProperties": {} },
+      "target": { "resourceName": "target/{case}.csv", "resourceProperties": {} }
+    },
+    "sftp": {
+      "category": "file",
+      "implemented": true,
+      "local": true,
+      "dockerService": "sftp",
+      "serverType": "File",
+      "concreteServer": "SFTPServer",
+      "serverClass": "com.everyarrow.dittoe.io.file.servers.sftp.SFTPServer",
+      "sourceStrategy": "com.everyarrow.dittoe.io.file.servers.sftp.reader.strategy.CSVReadStrategy",
+      "targetStrategy": "com.everyarrow.dittoe.io.file.servers.sftp.writer.strategy.CSVWriteStrategy",
+      "connectionDetails": {
+        "sftpHost": "localhost",
+        "sftpPort": "2223",
+        "sftpUser": "dittoe",
+        "sftpPassword": "dittoe123"
+      },
+      "source": { "resourceName": "source/canonical.csv", "resourceProperties": {} },
+      "target": { "resourceName": "target/{case}.csv", "resourceProperties": {} }
+    },
+    "bigquery": {
+      "category": "api",
+      "implemented": true,
+      "local": false,
+      "remoteProfile": true,
+      "serverType": "API",
+      "concreteServer": "BigQueryServer",
+      "serverClass": "com.everyarrow.dittoe.io.api.servers.bigquery.BigQueryServer",
+      "sourceStrategy": "com.everyarrow.dittoe.io.api.servers.bigquery.reader.strategy.QueryStrategy",
+      "targetStrategy": "com.everyarrow.dittoe.io.api.servers.bigquery.writer.strategy.DataStoreStrategy"
+    },
+    "snowflake": {
+      "category": "database",
+      "implemented": true,
+      "local": false,
+      "remoteProfile": true,
+      "serverType": "Database",
+      "concreteServer": "SnowflakeServer",
+      "serverClass": "com.everyarrow.dittoe.io.database.servers.snowflake.SnowflakeServer"
+    },
+    "dropbox": {
+      "category": "file",
+      "implemented": true,
+      "local": false,
+      "remoteProfile": true,
+      "needsFakeClient": true,
+      "serverType": "File",
+      "concreteServer": "DropboxServer"
+    },
+    "google-drive": {
+      "category": "file",
+      "implemented": true,
+      "local": false,
+      "remoteProfile": true,
+      "needsFakeClient": true,
+      "serverType": "File",
+      "concreteServer": "GoogleDriveServer"
+    },
+    "oracle-object-storage": {
+      "category": "file",
+      "implemented": true,
+      "local": false,
+      "remoteProfile": true,
+      "needsFakeClient": true,
+      "serverType": "File",
+      "concreteServer": "OracleServer"
+    },
+    "salesforce": {
+      "category": "api",
+      "implemented": false,
+      "local": false,
+      "excludedReason": "server operations throw NotImplementedException"
+    }
+  }
+}

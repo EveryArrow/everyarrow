@@ -1,0 +1,93 @@
+name: Build and Release Dittoe Engine
+
+on:
+  push:
+    branches:
+      - dev
+      - main
+    paths:
+      - "src/**"
+      - "pom.xml"
+      - ".github/workflows/**"
+  pull_request:
+    branches:
+      - dev
+      - main
+    paths:
+      - "src/**"
+      - "pom.xml"
+      - ".github/workflows/**"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+
+      - name: Set up Java 21 Corretto
+        uses: actions/setup-java@c1e323688fd81a25caa38c78aa6df2d33d3e20d9
+        with:
+          java-version: "21"
+          distribution: "corretto"
+          cache: "maven"
+
+      - name: Test
+        run: mvn -q test
+
+      - name: Package dittoe-engine
+        run: mvn -q -DskipTests package
+
+      - name: Upload dittoe-engine artifact
+        if: github.event_name == 'push'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: dittoe-engine-jar
+          path: target/dittoe-engine.jar
+          retention-days: 7
+
+  release:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: build
+    name: Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+
+      - name: Download dittoe-engine artifact
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: dittoe-engine-jar
+          path: artifacts
+
+      - name: Get version
+        id: get_version
+        shell: bash
+        run: |
+          VERSION=$(grep -oPm1 "(?<=<version>)[^<]+" pom.xml | head -1)
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Create draft release
+        uses: softprops/action-gh-release@26994186c0ac3ef5cae75ac16aa32e8153525f77
+        with:
+          tag_name: dittoe-engine-${{ steps.get_version.outputs.version }}
+          name: Dittoe Engine ${{ steps.get_version.outputs.version }}
+          body: |
+            ## Dittoe Engine Release
+
+            This release was built after the test job completed successfully.
+          files: |
+            artifacts/dittoe-engine.jar
+          draft: true
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

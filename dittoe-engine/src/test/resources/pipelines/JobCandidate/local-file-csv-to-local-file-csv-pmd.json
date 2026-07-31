@@ -1,0 +1,157 @@
+{
+  "id": "08a6a4a3-6541-4883-b0c1-b5ed8dd229c2",
+  "S2TMap": [
+    {
+      "sourceField": {
+        "name": "JobCandidateID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "JobCandidateID",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "BusinessEntityID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "BusinessEntityID",
+        "dataType": "Integer",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "Resume",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "Resume",
+        "dataType": "String",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ModifiedDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ModifiedDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    }
+  ],
+  "behaviors": [
+    {
+      "name": "SourceRetrieval",
+      "properties": {
+        "errorCountThreshold": "1"
+      },
+      "description": "Used to retrieve data from the source resource",
+      "behaviorType": "SourceRetrieval"
+    },
+    {
+      "name": "TargetInsertUpdate",
+      "properties": {
+        "errorCountThreshold": "1"
+      },
+      "description": "Used to write data to the target resource",
+      "behaviorType": "TargetInsertUpdate"
+    },
+    {
+      "name": "Instrumentation",
+      "properties": {},
+      "description": "Used for pipeline instrumentation",
+      "behaviorType": "Instrumentation"
+    },
+    {
+      "name": "Transformation",
+      "properties": {},
+      "description": "Apply tansformation using DEAL",
+      "behaviorType": "Transformation"
+    }
+  ],
+  "shortName": "JobCandidate.csv to JobCandidate Pipeline",
+  "globalProperties": {},
+  "sourceResourceToProcess": {
+    "fields": [
+      {
+        "name": "JobCandidateID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "BusinessEntityID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "Resume",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ModifiedDate",
+        "dataType": "String",
+        "isNullable": false
+      }
+    ],
+    "server": {
+      "name": "local-file-server",
+      "type": "File",
+      "connectionDetails": {
+        "path": "src/test/resources/pipelines/JobCandidate/source",
+        "fileType": "LocalFileServer"
+      }
+    },
+    "strategy": "com.everyarrow.dittoe.io.file.servers.localfile.reader.strategy.CSVReadStrategy",
+    "resourceID": 3,
+    "resourceName": "local-file.csv",
+    "resourceProperties": {}
+  },
+  "targetResourceToProcess": {
+    "fields": [
+      {
+        "name": "JobCandidateID",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "BusinessEntityID",
+        "dataType": "Integer",
+        "isNullable": true
+      },
+      {
+        "name": "Resume",
+        "dataType": "String",
+        "isNullable": true
+      },
+      {
+        "name": "ModifiedDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    ],
+    "server": {
+      "name": "local-file-server",
+      "type": "File",
+      "connectionDetails": {
+        "path": "src/test/resources/pipelines/JobCandidate/target",
+        "fileType": "LocalFileServer"
+      }
+    },
+    "strategy": "com.everyarrow.dittoe.io.file.servers.localfile.writer.strategy.CSVWriteStrategy",
+    "resourceID": 4,
+    "resourceName": "local-file.csv",
+    "resourceProperties": {}
+  }
+}

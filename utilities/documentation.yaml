@@ -1,0 +1,157 @@
+# Copyright (c) 2026 EveryArrow, Inc.
+#
+# Licensed under the Apache License, Version 2.0.
+# Use is subject to the LICENSE file, including
+# production, SaaS, and AI restrictions.
+
+openapi: 3.0.0
+info:
+  title: Service Call API Documentation
+  version: 1.0.0
+  description: Documentation for PostgreSQL service calls
+
+paths:
+/query/console:
+    get:
+      summary: Retrieve console information
+      description: Returns console information based on provided console ID or slug. If a slug is provided, it takes precedence over the console ID.
+      parameters:
+        - in: query
+          name: console_id
+          required: true
+          schema:
+            type: string
+          description: The ID of the console.
+        - in: query
+          name: slug
+          required: false
+          schema:
+            type: string
+          description: The slug associated with the console.
+      responses:
+        '200':
+          description: Successful response with console information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result_data:
+                    type: object
+                    description: The JSON representation of the console data.
+              examples:
+                example1:
+                  summary: Console data retrieved by console_id
+                  value:
+                    result_data:
+                      id: 43
+                      name: "Console Name"
+                      slug: "console-slug"
+                example2:
+                  summary: Console data retrieved by slug
+                  value:
+                    result_data:
+                      id: 44
+                      name: "Another Console"
+                      slug: "another-console-slug"
+        '400':
+          description: Invalid request when neither console_id nor slug is provided
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "console_id or slug must be provided"
+        '404':
+          description: Console not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Console not found"
+      tags:
+        - Console
+/query/get-user-cmd:
+    get:
+      summary: Retrieve User Command
+      security:
+        - bearerAuth: []
+      tags:
+        - User Commands
+      parameters:
+        - name: console_id
+          in: query
+          required: true
+          description: The ID of the console.
+          schema:
+            type: string
+        - name: auth_provider_id
+          in: query
+          required: true
+          description: The ID of the user's authentication provider.
+          schema:
+            type: string
+        - name: query_application
+          in: query
+          required: false
+          description: The name of the application making the query.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved the command.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  cmd:
+                    type: string
+              examples:
+                example1:
+                  value:
+                    cmd: /some/command/example
+                example2:
+                  value:
+                    cmd: /another/command/example
+                example3:
+                  value:
+                    cmd: /yet/another/command/example
+        '400':
+          description: Bad request, invalid input parameters.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+              example:
+                error: "Invalid console_id or auth_provider_id format."
+        '401':
+          description: Unauthorized, authentication is required.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+              example:
+                error: "Authentication credentials are missing or invalid."
+        '404':
+          description: Command not found.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+              example:
+                error: "No command found for the provided console_id and auth_provider_id."

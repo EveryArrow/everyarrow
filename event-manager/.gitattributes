@@ -1,0 +1,68 @@
+# Repository-owned line ending policy. Keep source/config/docs stable across OSes.
+* text=auto
+
+# Source, config, docs, and data fixtures use LF.
+*.adoc text eol=lf
+*.css text eol=lf
+*.cs text eol=lf
+*.csproj text eol=lf
+*.csv text eol=lf
+*.dockerfile text eol=lf
+*.env text eol=lf
+*.example text eol=lf
+*.gitignore text eol=lf
+*.gitattributes text eol=lf
+*.html text eol=lf
+*.ini text eol=lf
+*.java text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.jsonl text eol=lf
+*.jsx text eol=lf
+*.md text eol=lf
+*.mdx text eol=lf
+*.mjs text eol=lf
+*.properties text eol=lf
+*.props text eol=lf
+*.psql text eol=lf
+*.scss text eol=lf
+*.sh text eol=lf
+*.sql text eol=lf
+*.svg text eol=lf
+*.targets text eol=lf
+*.toml text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.txt text eol=lf
+*.xml text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+Dockerfile text eol=lf
+Jenkinsfile text eol=lf
+
+# Windows command scripts use CRLF.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+*.sln text eol=crlf
+
+# Binary artifacts should never be line-ending normalized.
+*.avro binary
+*.dll binary
+*.docx binary
+*.exe binary
+*.gif binary
+*.gz binary
+*.ico binary
+*.jar binary
+*.jpeg binary
+*.jpg binary
+*.keystore binary
+*.pdf binary
+*.png binary
+*.pfx binary
+*.raw binary
+*.snk binary
+*.war binary
+*.xlsx binary
+*.zip binary

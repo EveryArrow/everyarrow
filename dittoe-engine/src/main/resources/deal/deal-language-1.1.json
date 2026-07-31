@@ -1,0 +1,1181 @@
+{
+  "version" : "1.1",
+  "literals" : [ "number", "string", "boolean", "null", "array" ],
+  "operators" : [ "=", "??", "||", "&&", "==", "!=", "<", "<=", ">", ">=", "+", "-", "*", "/", "%", "!", "[]" ],
+  "functions" : [ {
+    "name" : "sum",
+    "aliases" : [ ],
+    "category" : "NUMERIC",
+    "description" : "Returns the sum of all arguments",
+    "syntax" : "sum(number1, number2, ...)",
+    "signatures" : [ {
+      "prefix" : [ ],
+      "repeating" : [ "NUMBER" ],
+      "minimumRepetitions" : 1,
+      "maximumRepetitions" : -1,
+      "suffix" : [ ],
+      "resultType" : "NUMBER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "multiply",
+    "aliases" : [ "mul" ],
+    "category" : "NUMERIC",
+    "description" : "Returns the product of all arguments",
+    "syntax" : "multiply(number1, number2, ...)",
+    "signatures" : [ {
+      "prefix" : [ ],
+      "repeating" : [ "NUMBER" ],
+      "minimumRepetitions" : 1,
+      "maximumRepetitions" : -1,
+      "suffix" : [ ],
+      "resultType" : "NUMBER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "abs",
+    "aliases" : [ ],
+    "category" : "NUMERIC",
+    "description" : "Returns the absolute value",
+    "syntax" : "abs(number)",
+    "signatures" : [ {
+      "prefix" : [ "NUMBER" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "NUMBER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "acos",
+    "aliases" : [ ],
+    "category" : "NUMERIC",
+    "description" : "Returns arc cosine in radians",
+    "syntax" : "acos(number)",
+    "signatures" : [ {
+      "prefix" : [ "NUMBER" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "NUMBER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "asin",
+    "aliases" : [ ],
+    "category" : "NUMERIC",
+    "description" : "Returns arc sine in radians",
+    "syntax" : "asin(number)",
+    "signatures" : [ {
+      "prefix" : [ "NUMBER" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "NUMBER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "atan",
+    "aliases" : [ ],
+    "category" : "NUMERIC",
+    "description" : "Returns arc tangent in radians",
+    "syntax" : "atan(number)",
+    "signatures" : [ {
+      "prefix" : [ "NUMBER" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "NUMBER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "atan2",
+    "aliases" : [ ],
+    "category" : "NUMERIC",
+    "description" : "Returns arc tangent of two values",
+    "syntax" : "atan2(y, x)",
+    "signatures" : [ {
+      "prefix" : [ "NUMBER", "NUMBER" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "NUMBER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "ceiling",
+    "aliases" : [ "ceil" ],
+    "category" : "NUMERIC",
+    "description" : "Returns the smallest integer greater than or equal to a number",
+    "syntax" : "ceiling(number)",
+    "signatures" : [ {
+      "prefix" : [ "NUMBER" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "NUMBER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "cos",
+    "aliases" : [ ],
+    "category" : "NUMERIC",
+    "description" : "Returns cosine of an angle",
+    "syntax" : "cos(number)",
+    "signatures" : [ {
+      "prefix" : [ "NUMBER" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "NUMBER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "cot",
+    "aliases" : [ ],
+    "category" : "NUMERIC",
+    "description" : "Returns cotangent of an angle",
+    "syntax" : "cot(number)",
+    "signatures" : [ {
+      "prefix" : [ "NUMBER" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "NUMBER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "degrees",
+    "aliases" : [ ],
+    "category" : "NUMERIC",
+    "description" : "Converts radians to degrees",
+    "syntax" : "degrees(number)",
+    "signatures" : [ {
+      "prefix" : [ "NUMBER" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "NUMBER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "exp",
+    "aliases" : [ ],
+    "category" : "NUMERIC",
+    "description" : "Returns e raised to the supplied power",
+    "syntax" : "exp(number)",
+    "signatures" : [ {
+      "prefix" : [ "NUMBER" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "NUMBER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "floor",
+    "aliases" : [ ],
+    "category" : "NUMERIC",
+    "description" : "Returns the largest integer less than or equal to a number",
+    "syntax" : "floor(number)",
+    "signatures" : [ {
+      "prefix" : [ "NUMBER" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "NUMBER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "log",
+    "aliases" : [ ],
+    "category" : "NUMERIC",
+    "description" : "Returns the natural logarithm",
+    "syntax" : "log(number)",
+    "signatures" : [ {
+      "prefix" : [ "NUMBER" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "NUMBER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "log10",
+    "aliases" : [ ],
+    "category" : "NUMERIC",
+    "description" : "Returns the base-10 logarithm",
+    "syntax" : "log10(number)",
+    "signatures" : [ {
+      "prefix" : [ "NUMBER" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "NUMBER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "mod",
+    "aliases" : [ ],
+    "category" : "NUMERIC",
+    "description" : "Returns the remainder of division",
+    "syntax" : "mod(dividend, divisor)",
+    "signatures" : [ {
+      "prefix" : [ "NUMBER", "NUMBER" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "NUMBER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "power",
+    "aliases" : [ ],
+    "category" : "NUMERIC",
+    "description" : "Raises a number to a power",
+    "syntax" : "power(base, exponent)",
+    "signatures" : [ {
+      "prefix" : [ "NUMBER", "NUMBER" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "NUMBER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "radians",
+    "aliases" : [ ],
+    "category" : "NUMERIC",
+    "description" : "Converts degrees to radians",
+    "syntax" : "radians(number)",
+    "signatures" : [ {
+      "prefix" : [ "NUMBER" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "NUMBER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "round",
+    "aliases" : [ ],
+    "category" : "NUMERIC",
+    "description" : "Rounds a number with an optional decimal count",
+    "syntax" : "round(number, [decimals])",
+    "signatures" : [ {
+      "prefix" : [ "NUMBER" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "NUMBER"
+    }, {
+      "prefix" : [ "NUMBER", "INTEGER" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "NUMBER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "sign",
+    "aliases" : [ ],
+    "category" : "NUMERIC",
+    "description" : "Returns the sign of a number",
+    "syntax" : "sign(number)",
+    "signatures" : [ {
+      "prefix" : [ "NUMBER" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "NUMBER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "sin",
+    "aliases" : [ ],
+    "category" : "NUMERIC",
+    "description" : "Returns sine of an angle",
+    "syntax" : "sin(number)",
+    "signatures" : [ {
+      "prefix" : [ "NUMBER" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "NUMBER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "sqrt",
+    "aliases" : [ ],
+    "category" : "NUMERIC",
+    "description" : "Returns the square root",
+    "syntax" : "sqrt(number)",
+    "signatures" : [ {
+      "prefix" : [ "NUMBER" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "NUMBER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "tan",
+    "aliases" : [ ],
+    "category" : "NUMERIC",
+    "description" : "Returns tangent of an angle",
+    "syntax" : "tan(number)",
+    "signatures" : [ {
+      "prefix" : [ "NUMBER" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "NUMBER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "greatest",
+    "aliases" : [ ],
+    "category" : "NUMERIC",
+    "description" : "Returns the largest numeric argument",
+    "syntax" : "greatest(number1, number2, ...)",
+    "signatures" : [ {
+      "prefix" : [ ],
+      "repeating" : [ "NUMBER" ],
+      "minimumRepetitions" : 1,
+      "maximumRepetitions" : -1,
+      "suffix" : [ ],
+      "resultType" : "NUMBER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "least",
+    "aliases" : [ ],
+    "category" : "NUMERIC",
+    "description" : "Returns the smallest numeric argument",
+    "syntax" : "least(number1, number2, ...)",
+    "signatures" : [ {
+      "prefix" : [ ],
+      "repeating" : [ "NUMBER" ],
+      "minimumRepetitions" : 1,
+      "maximumRepetitions" : -1,
+      "suffix" : [ ],
+      "resultType" : "NUMBER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "trunc",
+    "aliases" : [ ],
+    "category" : "NUMERIC",
+    "description" : "Truncates a number with an optional decimal count",
+    "syntax" : "trunc(number, [decimals])",
+    "signatures" : [ {
+      "prefix" : [ "NUMBER" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "NUMBER"
+    }, {
+      "prefix" : [ "NUMBER", "INTEGER" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "NUMBER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "concat",
+    "aliases" : [ ],
+    "category" : "STRING",
+    "description" : "Concatenates all arguments into a string",
+    "syntax" : "concat(value1, value2, ...)",
+    "signatures" : [ {
+      "prefix" : [ ],
+      "repeating" : [ "ANY" ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : -1,
+      "suffix" : [ ],
+      "resultType" : "STRING"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "lower",
+    "aliases" : [ ],
+    "category" : "STRING",
+    "description" : "Converts a string to lowercase",
+    "syntax" : "lower(string)",
+    "signatures" : [ {
+      "prefix" : [ "STRING" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "STRING"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "upper",
+    "aliases" : [ "toupper" ],
+    "category" : "STRING",
+    "description" : "Converts a string to uppercase",
+    "syntax" : "upper(string)",
+    "signatures" : [ {
+      "prefix" : [ "STRING" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "STRING"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "length",
+    "aliases" : [ ],
+    "category" : "STRING",
+    "description" : "Returns the length of a string",
+    "syntax" : "length(string)",
+    "signatures" : [ {
+      "prefix" : [ "STRING" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "INTEGER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "substring",
+    "aliases" : [ "substr" ],
+    "category" : "STRING",
+    "description" : "Extracts a substring",
+    "syntax" : "substring(string, start, length)",
+    "signatures" : [ {
+      "prefix" : [ "STRING", "INTEGER", "INTEGER" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "STRING"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "trim",
+    "aliases" : [ ],
+    "category" : "STRING",
+    "description" : "Removes leading and trailing spaces",
+    "syntax" : "trim(string)",
+    "signatures" : [ {
+      "prefix" : [ "STRING" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "STRING"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "ltrim",
+    "aliases" : [ ],
+    "category" : "STRING",
+    "description" : "Removes leading spaces",
+    "syntax" : "ltrim(string)",
+    "signatures" : [ {
+      "prefix" : [ "STRING" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "STRING"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "rtrim",
+    "aliases" : [ ],
+    "category" : "STRING",
+    "description" : "Removes trailing spaces",
+    "syntax" : "rtrim(string)",
+    "signatures" : [ {
+      "prefix" : [ "STRING" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "STRING"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "replace",
+    "aliases" : [ ],
+    "category" : "STRING",
+    "description" : "Replaces occurrences of a substring",
+    "syntax" : "replace(string, old, new)",
+    "signatures" : [ {
+      "prefix" : [ "STRING", "STRING", "STRING" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "STRING"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "lpad",
+    "aliases" : [ ],
+    "category" : "STRING",
+    "description" : "Pads the left side of a string",
+    "syntax" : "lpad(string, length, pad)",
+    "signatures" : [ {
+      "prefix" : [ "STRING", "INTEGER", "STRING" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "STRING"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "rpad",
+    "aliases" : [ ],
+    "category" : "STRING",
+    "description" : "Pads the right side of a string",
+    "syntax" : "rpad(string, length, pad)",
+    "signatures" : [ {
+      "prefix" : [ "STRING", "INTEGER", "STRING" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "STRING"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "instr",
+    "aliases" : [ "position" ],
+    "category" : "STRING",
+    "description" : "Returns the one-based position of a substring, or zero",
+    "syntax" : "instr(string, substring)",
+    "signatures" : [ {
+      "prefix" : [ "STRING", "STRING" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "INTEGER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "initcap",
+    "aliases" : [ ],
+    "category" : "STRING",
+    "description" : "Capitalizes the first letter of each word",
+    "syntax" : "initcap(string)",
+    "signatures" : [ {
+      "prefix" : [ "STRING" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "STRING"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "ascii",
+    "aliases" : [ ],
+    "category" : "STRING",
+    "description" : "Returns the character code of the first character",
+    "syntax" : "ascii(string)",
+    "signatures" : [ {
+      "prefix" : [ "STRING" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "INTEGER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "chr",
+    "aliases" : [ ],
+    "category" : "STRING",
+    "description" : "Returns the character for a character code",
+    "syntax" : "chr(code)",
+    "signatures" : [ {
+      "prefix" : [ "INTEGER" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "STRING"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "coalesce",
+    "aliases" : [ ],
+    "category" : "CONDITIONAL",
+    "description" : "Returns the first non-null argument",
+    "syntax" : "coalesce(expr1, expr2, ...)",
+    "signatures" : [ {
+      "prefix" : [ ],
+      "repeating" : [ "ANY" ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : -1,
+      "suffix" : [ ],
+      "resultType" : "ANY"
+    } ],
+    "evaluationStrategy" : "LAZY"
+  }, {
+    "name" : "nullif",
+    "aliases" : [ ],
+    "category" : "CONDITIONAL",
+    "description" : "Returns null when both arguments are equal",
+    "syntax" : "nullif(expr1, expr2)",
+    "signatures" : [ {
+      "prefix" : [ "ANY", "ANY" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "ANY"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "if",
+    "aliases" : [ ],
+    "category" : "CONDITIONAL",
+    "description" : "Returns the result for the first true condition, otherwise the final value",
+    "syntax" : "if(cond1, then1, cond2, then2, ..., elseValue)",
+    "signatures" : [ {
+      "prefix" : [ ],
+      "repeating" : [ "BOOLEAN", "ANY" ],
+      "minimumRepetitions" : 1,
+      "maximumRepetitions" : -1,
+      "suffix" : [ "ANY" ],
+      "resultType" : "ANY"
+    } ],
+    "evaluationStrategy" : "LAZY"
+  }, {
+    "name" : "caseWhen",
+    "aliases" : [ ],
+    "category" : "CONDITIONAL",
+    "description" : "Returns the result for the first true condition, otherwise the default value",
+    "syntax" : "caseWhen(cond1, then1, cond2, then2, ..., defaultValue)",
+    "signatures" : [ {
+      "prefix" : [ ],
+      "repeating" : [ "BOOLEAN", "ANY" ],
+      "minimumRepetitions" : 1,
+      "maximumRepetitions" : -1,
+      "suffix" : [ "ANY" ],
+      "resultType" : "ANY"
+    } ],
+    "evaluationStrategy" : "LAZY"
+  }, {
+    "name" : "eq",
+    "aliases" : [ ],
+    "category" : "BOOLEAN",
+    "description" : "Returns true when all arguments are equal",
+    "syntax" : "eq(value1, value2, ...)",
+    "signatures" : [ {
+      "prefix" : [ ],
+      "repeating" : [ "ANY" ],
+      "minimumRepetitions" : 2,
+      "maximumRepetitions" : -1,
+      "suffix" : [ ],
+      "resultType" : "BOOLEAN"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "lessThan",
+    "aliases" : [ ],
+    "category" : "BOOLEAN",
+    "description" : "Returns true when the first number is less than the second",
+    "syntax" : "lessThan(value1, value2)",
+    "signatures" : [ {
+      "prefix" : [ "NUMBER", "NUMBER" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "BOOLEAN"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "not",
+    "aliases" : [ ],
+    "category" : "BOOLEAN",
+    "description" : "Returns the logical inverse",
+    "syntax" : "not(boolean)",
+    "signatures" : [ {
+      "prefix" : [ "BOOLEAN" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "BOOLEAN"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "and",
+    "aliases" : [ ],
+    "category" : "BOOLEAN",
+    "description" : "Returns true when all arguments are true",
+    "syntax" : "and(boolean1, boolean2, ...)",
+    "signatures" : [ {
+      "prefix" : [ ],
+      "repeating" : [ "BOOLEAN" ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : -1,
+      "suffix" : [ ],
+      "resultType" : "BOOLEAN"
+    } ],
+    "evaluationStrategy" : "LAZY"
+  }, {
+    "name" : "or",
+    "aliases" : [ ],
+    "category" : "BOOLEAN",
+    "description" : "Returns true when any argument is true",
+    "syntax" : "or(boolean1, boolean2, ...)",
+    "signatures" : [ {
+      "prefix" : [ ],
+      "repeating" : [ "BOOLEAN" ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : -1,
+      "suffix" : [ ],
+      "resultType" : "BOOLEAN"
+    } ],
+    "evaluationStrategy" : "LAZY"
+  }, {
+    "name" : "current_datetime",
+    "aliases" : [ "currentDateTime" ],
+    "category" : "DATE_TIME",
+    "description" : "Returns the current local date and time",
+    "syntax" : "current_datetime()",
+    "signatures" : [ {
+      "prefix" : [ ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "DATE_TIME"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "current_date",
+    "aliases" : [ "currentDate" ],
+    "category" : "DATE_TIME",
+    "description" : "Returns the current local date",
+    "syntax" : "current_date()",
+    "signatures" : [ {
+      "prefix" : [ ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "DATE"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "current_time",
+    "aliases" : [ "currentTime" ],
+    "category" : "DATE_TIME",
+    "description" : "Returns the current local time",
+    "syntax" : "current_time()",
+    "signatures" : [ {
+      "prefix" : [ ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "TIME"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "year",
+    "aliases" : [ ],
+    "category" : "DATE_TIME",
+    "description" : "Returns the year component",
+    "syntax" : "year(date)",
+    "signatures" : [ {
+      "prefix" : [ "DATE_OR_DATE_TIME" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "INTEGER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "month",
+    "aliases" : [ ],
+    "category" : "DATE_TIME",
+    "description" : "Returns the month component",
+    "syntax" : "month(date)",
+    "signatures" : [ {
+      "prefix" : [ "DATE_OR_DATE_TIME" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "INTEGER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "day",
+    "aliases" : [ ],
+    "category" : "DATE_TIME",
+    "description" : "Returns the day component",
+    "syntax" : "day(date)",
+    "signatures" : [ {
+      "prefix" : [ "DATE_OR_DATE_TIME" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "INTEGER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "hour",
+    "aliases" : [ ],
+    "category" : "DATE_TIME",
+    "description" : "Returns the hour component",
+    "syntax" : "hour(time)",
+    "signatures" : [ {
+      "prefix" : [ "TIME_OR_DATE_TIME" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "INTEGER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "minute",
+    "aliases" : [ ],
+    "category" : "DATE_TIME",
+    "description" : "Returns the minute component",
+    "syntax" : "minute(time)",
+    "signatures" : [ {
+      "prefix" : [ "TIME_OR_DATE_TIME" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "INTEGER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "second",
+    "aliases" : [ ],
+    "category" : "DATE_TIME",
+    "description" : "Returns the second component",
+    "syntax" : "second(time)",
+    "signatures" : [ {
+      "prefix" : [ "TIME_OR_DATE_TIME" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "INTEGER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "date_add",
+    "aliases" : [ "dateAdd" ],
+    "category" : "DATE_TIME",
+    "description" : "Adds days to a date",
+    "syntax" : "date_add(date, days)",
+    "signatures" : [ {
+      "prefix" : [ "DATE", "INTEGER" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "DATE"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "date_sub",
+    "aliases" : [ "dateSub" ],
+    "category" : "DATE_TIME",
+    "description" : "Subtracts days from a date",
+    "syntax" : "date_sub(date, days)",
+    "signatures" : [ {
+      "prefix" : [ "DATE", "INTEGER" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "DATE"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "extract",
+    "aliases" : [ ],
+    "category" : "DATE_TIME",
+    "description" : "Extracts a named component from a date or time",
+    "syntax" : "extract(field, dateOrTime)",
+    "signatures" : [ {
+      "prefix" : [ "STRING", "TEMPORAL" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "INTEGER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "to_string",
+    "aliases" : [ "toString" ],
+    "category" : "CONVERSION",
+    "description" : "Converts a value to text and propagates null",
+    "syntax" : "to_string(value)",
+    "signatures" : [ {
+      "prefix" : [ "ANY" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "STRING"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "to_integer",
+    "aliases" : [ "toInteger" ],
+    "category" : "CONVERSION",
+    "description" : "Converts an exact numeric or text value to an integer",
+    "syntax" : "to_integer(value)",
+    "signatures" : [ {
+      "prefix" : [ "ANY" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "INTEGER"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "to_double",
+    "aliases" : [ "toDouble" ],
+    "category" : "CONVERSION",
+    "description" : "Converts a finite numeric or text value to a double",
+    "syntax" : "to_double(value)",
+    "signatures" : [ {
+      "prefix" : [ "ANY" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "DOUBLE"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "to_decimal",
+    "aliases" : [ "toDecimal" ],
+    "category" : "CONVERSION",
+    "description" : "Converts a finite numeric or text value to a decimal",
+    "syntax" : "to_decimal(value)",
+    "signatures" : [ {
+      "prefix" : [ "ANY" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "DECIMAL"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "to_boolean",
+    "aliases" : [ "toBoolean" ],
+    "category" : "CONVERSION",
+    "description" : "Converts true or false text to a boolean",
+    "syntax" : "to_boolean(value)",
+    "signatures" : [ {
+      "prefix" : [ "ANY" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "BOOLEAN"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "to_date",
+    "aliases" : [ "toDate" ],
+    "category" : "CONVERSION",
+    "description" : "Converts an ISO-8601 value to a local date",
+    "syntax" : "to_date(value)",
+    "signatures" : [ {
+      "prefix" : [ "ANY" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "DATE"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "to_datetime",
+    "aliases" : [ "toDateTime", "to_date_time" ],
+    "category" : "CONVERSION",
+    "description" : "Converts an ISO-8601 value to a local date-time",
+    "syntax" : "to_datetime(value)",
+    "signatures" : [ {
+      "prefix" : [ "ANY" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "DATE_TIME"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "to_time",
+    "aliases" : [ "toTime" ],
+    "category" : "CONVERSION",
+    "description" : "Converts an ISO-8601 value to a local time",
+    "syntax" : "to_time(value)",
+    "signatures" : [ {
+      "prefix" : [ "ANY" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "TIME"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "to_uuid",
+    "aliases" : [ "toUuid" ],
+    "category" : "CONVERSION",
+    "description" : "Converts a standard UUID string to a UUID",
+    "syntax" : "to_uuid(value)",
+    "signatures" : [ {
+      "prefix" : [ "ANY" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "UUID"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "is_null",
+    "aliases" : [ "isNull" ],
+    "category" : "CONVERSION",
+    "description" : "Returns true when a value is null",
+    "syntax" : "is_null(value)",
+    "signatures" : [ {
+      "prefix" : [ "ANY" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "BOOLEAN"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  }, {
+    "name" : "is_not_null",
+    "aliases" : [ "isNotNull" ],
+    "category" : "CONVERSION",
+    "description" : "Returns true when a value is not null",
+    "syntax" : "is_not_null(value)",
+    "signatures" : [ {
+      "prefix" : [ "ANY" ],
+      "repeating" : [ ],
+      "minimumRepetitions" : 0,
+      "maximumRepetitions" : 0,
+      "suffix" : [ ],
+      "resultType" : "BOOLEAN"
+    } ],
+    "evaluationStrategy" : "EAGER"
+  } ],
+  "diagnostics" : [ {
+    "code" : "SYNTAX_ERROR",
+    "severity" : "ERROR",
+    "description" : "The expression does not conform to DEAL syntax"
+  }, {
+    "code" : "UNKNOWN_FUNCTION",
+    "severity" : "ERROR",
+    "description" : "The expression calls a function not present in the DEAL catalog"
+  }, {
+    "code" : "INVALID_ARGUMENT_COUNT",
+    "severity" : "ERROR",
+    "description" : "A DEAL function received an unsupported number of arguments"
+  }, {
+    "code" : "UNKNOWN_FIELD",
+    "severity" : "ERROR",
+    "description" : "The expression references a field not declared by the PMD Resource"
+  }, {
+    "code" : "TYPE_MISMATCH",
+    "severity" : "ERROR",
+    "description" : "An operator, function, or computed field received an incompatible type"
+  }, {
+    "code" : "NULLABILITY_MISMATCH",
+    "severity" : "ERROR",
+    "description" : "A nullable expression flows into a non-nullable operation or field"
+  }, {
+    "code" : "UNSUPPORTED_CONVERSION",
+    "severity" : "ERROR",
+    "description" : "An explicit DEAL conversion does not support the source type"
+  }, {
+    "code" : "INVALID_COMPUTED_FIELD",
+    "severity" : "ERROR",
+    "description" : "A transformation field is not a computed PMD Resource field"
+  }, {
+    "code" : "DUPLICATE_COMPUTED_FIELD",
+    "severity" : "ERROR",
+    "description" : "A computed PMD Resource field is declared more than once"
+  }, {
+    "code" : "CIRCULAR_DEPENDENCY",
+    "severity" : "ERROR",
+    "description" : "Computed PMD Resource fields contain a dependency cycle"
+  } ],
+  "conformanceCases" : [ {
+    "name" : "arithmetic-precedence",
+    "expression" : "1 + 2 * 3",
+    "expected" : 7
+  }, {
+    "name" : "comparison-and-logic",
+    "expression" : "2 < 3 && 3 <= 3",
+    "expected" : true
+  }, {
+    "name" : "null-coalescing",
+    "expression" : "null ?? \"fallback\"",
+    "expected" : "fallback"
+  }, {
+    "name" : "lazy-conditional",
+    "expression" : "if(true,\"selected\",1 / 0)",
+    "expected" : "selected"
+  }, {
+    "name" : "explicit-integer-conversion",
+    "expression" : "to_integer(\"42\")",
+    "expected" : 42
+  }, {
+    "name" : "escaped-string",
+    "expression" : "\"line\\nvalue\"",
+    "expected" : "line\nvalue"
+  } ]
+}

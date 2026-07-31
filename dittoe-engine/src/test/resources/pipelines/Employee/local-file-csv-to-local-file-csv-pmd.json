@@ -1,0 +1,421 @@
+{
+  "id": "935b2619-05d9-4190-8b68-165c00dd23bb",
+  "S2TMap": [
+    {
+      "sourceField": {
+        "name": "BusinessEntityID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "BusinessEntityID",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "NationalIDNumber",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "NationalIDNumber",
+        "dataType": "String",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "LoginID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "LoginID",
+        "dataType": "String",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "OrganizationNode",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "OrganizationNode",
+        "dataType": "String",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "OrganizationLevel",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "OrganizationLevel",
+        "dataType": "Integer",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "JobTitle",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "JobTitle",
+        "dataType": "String",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "BirthDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "BirthDate",
+        "dataType": "Date",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "MaritalStatus",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "MaritalStatus",
+        "dataType": "String",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "Gender",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "Gender",
+        "dataType": "String",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "HireDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "HireDate",
+        "dataType": "Date",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "SalariedFlag",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "SalariedFlag",
+        "dataType": "String",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "VacationHours",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "VacationHours",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "SickLeaveHours",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "SickLeaveHours",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "CurrentFlag",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "CurrentFlag",
+        "dataType": "String",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "rowguid",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "rowguid",
+        "dataType": "String",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ModifiedDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ModifiedDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    }
+  ],
+  "behaviors": [
+    {
+      "name": "SourceRetrieval",
+      "properties": {
+        "errorCountThreshold": "1"
+      },
+      "description": "Used to retrieve data from the source resource",
+      "behaviorType": "SourceRetrieval"
+    },
+    {
+      "name": "TargetInsertUpdate",
+      "properties": {
+        "errorCountThreshold": "1"
+      },
+      "description": "Used to write data to the target resource",
+      "behaviorType": "TargetInsertUpdate"
+    },
+    {
+      "name": "Instrumentation",
+      "properties": {},
+      "description": "Used for pipeline instrumentation",
+      "behaviorType": "Instrumentation"
+    },
+    {
+      "name": "Transformation",
+      "properties": {},
+      "description": "Apply tansformation using DEAL",
+      "behaviorType": "Transformation"
+    }
+  ],
+  "shortName": "Employee.csv to Employee Pipeline",
+  "globalProperties": {},
+  "sourceResourceToProcess": {
+    "fields": [
+      {
+        "name": "BusinessEntityID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "NationalIDNumber",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "LoginID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "OrganizationNode",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "OrganizationLevel",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "JobTitle",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "BirthDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "MaritalStatus",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "Gender",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "HireDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "SalariedFlag",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "VacationHours",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "SickLeaveHours",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "CurrentFlag",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "rowguid",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ModifiedDate",
+        "dataType": "String",
+        "isNullable": false
+      }
+    ],
+    "server": {
+      "name": "local-file-server",
+      "type": "File",
+      "connectionDetails": {
+        "path": "src/test/resources/pipelines/Employee/source",
+        "fileType": "LocalFileServer"
+      }
+    },
+    "strategy": "com.everyarrow.dittoe.io.file.servers.localfile.reader.strategy.CSVReadStrategy",
+    "resourceID": 3,
+    "resourceName": "local-file.csv",
+    "resourceProperties": {}
+  },
+  "targetResourceToProcess": {
+    "fields": [
+      {
+        "name": "BusinessEntityID",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "NationalIDNumber",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "LoginID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "OrganizationNode",
+        "dataType": "String",
+        "isNullable": true
+      },
+      {
+        "name": "OrganizationLevel",
+        "dataType": "Integer",
+        "isNullable": true
+      },
+      {
+        "name": "JobTitle",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "BirthDate",
+        "dataType": "Date",
+        "isNullable": false
+      },
+      {
+        "name": "MaritalStatus",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "Gender",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "HireDate",
+        "dataType": "Date",
+        "isNullable": false
+      },
+      {
+        "name": "SalariedFlag",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "VacationHours",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "SickLeaveHours",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "CurrentFlag",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "rowguid",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ModifiedDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    ],
+    "server": {
+      "name": "local-file-server",
+      "type": "File",
+      "connectionDetails": {
+        "path": "src/test/resources/pipelines/Employee/target",
+        "fileType": "LocalFileServer"
+      }
+    },
+    "strategy": "com.everyarrow.dittoe.io.file.servers.localfile.writer.strategy.CSVWriteStrategy",
+    "resourceID": 4,
+    "resourceName": "local-file.csv",
+    "resourceProperties": {}
+  }
+}

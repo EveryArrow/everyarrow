@@ -1,0 +1,50 @@
+title = "EveryArrow secret scanning"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Container definitions are outside the non-Docker release gate."
+paths = [
+  '''(^|/)docker/''',
+]
+
+[[allowlists]]
+description = "Maven target directories contain generated copies of scanned source fixtures."
+paths = [
+  '''(^|/)target/''',
+]
+
+[[allowlists]]
+description = "AdventureWorks GUIDs in these two data fixtures are not Square credentials."
+targetRules = ["square-access-token"]
+paths = [
+  '''(^|/)dittoe-engine/src/test/resources/pipelines/BusinessEntity/source/local-file\.csv$''',
+  '''(^|/)dittoe-engine/src/test/resources/pipelines/SalesOrderHeader/source/local-file\.csv$''',
+]
+
+[[allowlists]]
+description = "Two reviewed AdventureWorks description identifiers are not API keys."
+targetRules = ["generic-api-key"]
+condition = "AND"
+regexTarget = "line"
+regexes = [
+  '''(?i)(41155353-E7A7-48BF-9C8E-B62372CA4738|7D88F575-9042-4BC1-95F9-E2AF1E0AFF4D)''',
+]
+paths = [
+  '''(^|/)dittoe-engine/src/test/resources/pipelines/ProductDescription/source/local-file\.csv$''',
+]
+
+[[allowlists]]
+description = "Azurite publishes one fixed emulator-only development storage key."
+regexTarget = "line"
+regexes = [
+  '''Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==''',
+]
+
+[[allowlists]]
+description = "Removed installer history contains a literal internal Docker JDBC endpoint, not credentials."
+regexTarget = "line"
+regexes = [
+  '''jdbc:postgresql://keycloak-postgres:5432/keycloak''',
+]

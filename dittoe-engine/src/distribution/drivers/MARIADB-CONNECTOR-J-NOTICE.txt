@@ -1,0 +1,17 @@
+MariaDB Connector/J ${mariadb.connector.version}
+
+This distribution uses the unmodified MariaDB Connector/J binary as a
+replaceable runtime library for the DITTOE MySQL connector. MariaDB
+Connector/J is licensed under LGPL-2.1-or-later.
+
+The corresponding source archive is distributed beside the binary as:
+mariadb-java-client-${mariadb.connector.version}-sources.jar
+
+License:
+https://github.com/mariadb-corporation/mariadb-connector-j/blob/${mariadb.connector.version}/LICENSE
+https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
+
+Upstream source:
+https://github.com/mariadb-corporation/mariadb-connector-j/tree/${mariadb.connector.version}
+
+No EveryArrow source code is included in or derived from the driver JAR.

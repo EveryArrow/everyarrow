@@ -1,0 +1,311 @@
+{
+  "id": "527cba8a-c9d3-4da0-b489-f487263e31be",
+  "S2TMap": [
+    {
+      "sourceField": {
+        "name": "ProductID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ProductID",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "BusinessEntityID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "BusinessEntityID",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "AverageLeadTime",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "AverageLeadTime",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "StandardPrice",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "StandardPrice",
+        "dataType": "Decimal",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "LastReceiptCost",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "LastReceiptCost",
+        "dataType": "Decimal",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "LastReceiptDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "LastReceiptDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "MinOrderQty",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "MinOrderQty",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "MaxOrderQty",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "MaxOrderQty",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "OnOrderQty",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "OnOrderQty",
+        "dataType": "Integer",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "UnitMeasureCode",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "UnitMeasureCode",
+        "dataType": "String",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ModifiedDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ModifiedDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    }
+  ],
+  "behaviors": [
+    {
+      "name": "SourceRetrieval",
+      "properties": {
+        "errorCountThreshold": "1"
+      },
+      "description": "Used to retrieve data from the source resource",
+      "behaviorType": "SourceRetrieval"
+    },
+    {
+      "name": "TargetInsertUpdate",
+      "properties": {
+        "errorCountThreshold": "1"
+      },
+      "description": "Used to write data to the target resource",
+      "behaviorType": "TargetInsertUpdate"
+    },
+    {
+      "name": "Instrumentation",
+      "properties": {},
+      "description": "Used for pipeline instrumentation",
+      "behaviorType": "Instrumentation"
+    },
+    {
+      "name": "Transformation",
+      "properties": {},
+      "description": "Apply tansformation using DEAL",
+      "behaviorType": "Transformation"
+    }
+  ],
+  "shortName": "ProductVendor.csv to ProductVendor Pipeline",
+  "globalProperties": {},
+  "sourceResourceToProcess": {
+    "fields": [
+      {
+        "name": "ProductID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "BusinessEntityID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "AverageLeadTime",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "StandardPrice",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "LastReceiptCost",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "LastReceiptDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "MinOrderQty",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "MaxOrderQty",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "OnOrderQty",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "UnitMeasureCode",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ModifiedDate",
+        "dataType": "String",
+        "isNullable": false
+      }
+    ],
+    "server": {
+      "name": "local-file-server",
+      "type": "File",
+      "connectionDetails": {
+        "path": "src/test/resources/pipelines/ProductVendor/source",
+        "fileType": "LocalFileServer"
+      }
+    },
+    "strategy": "com.everyarrow.dittoe.io.file.servers.localfile.reader.strategy.CSVReadStrategy",
+    "resourceID": 3,
+    "resourceName": "local-file.csv",
+    "resourceProperties": {}
+  },
+  "targetResourceToProcess": {
+    "fields": [
+      {
+        "name": "ProductID",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "BusinessEntityID",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "AverageLeadTime",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "StandardPrice",
+        "dataType": "Decimal",
+        "isNullable": false
+      },
+      {
+        "name": "LastReceiptCost",
+        "dataType": "Decimal",
+        "isNullable": true
+      },
+      {
+        "name": "LastReceiptDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": true
+      },
+      {
+        "name": "MinOrderQty",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "MaxOrderQty",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "OnOrderQty",
+        "dataType": "Integer",
+        "isNullable": true
+      },
+      {
+        "name": "UnitMeasureCode",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ModifiedDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    ],
+    "server": {
+      "name": "local-file-server",
+      "type": "File",
+      "connectionDetails": {
+        "path": "src/test/resources/pipelines/ProductVendor/target",
+        "fileType": "LocalFileServer"
+      }
+    },
+    "strategy": "com.everyarrow.dittoe.io.file.servers.localfile.writer.strategy.CSVWriteStrategy",
+    "resourceID": 4,
+    "resourceName": "local-file.csv",
+    "resourceProperties": {}
+  }
+}

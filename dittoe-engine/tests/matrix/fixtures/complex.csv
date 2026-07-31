@@ -1,0 +1,5 @@
+id,name,amount,active,updated_at,notes
+1,"Alpha, Inc",10.50,true,2026-05-16T10:15:30Z,"contains comma"
+2,Beta-Prime,0.00,false,2026-05-16T10:16:30Z,"pipe | and slash / characters"
+3,Gamma,999999.99,true,2026-05-16T10:17:30Z,"contains ""quotes"" and pipes | like this"
+4,Delta,,false,2026-05-16T10:18:30Z,"empty amount plus JSON-ish text: {""k"":""v""}"

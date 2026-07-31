@@ -1,0 +1,7 @@
+*
+!Dockerfile
+!.dockerignore
+!docker/
+!docker/entrypoint.sh
+!target/
+!target/event-engine-*.jar

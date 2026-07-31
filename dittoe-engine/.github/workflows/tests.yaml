@@ -1,0 +1,34 @@
+name: Tests
+
+on:
+  push:
+    branches:
+      - dev
+      - staging
+  pull_request:
+    branches:
+      - dev
+      - staging
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+
+      - name: Set up Java 21 Corretto
+        uses: actions/setup-java@c1e323688fd81a25caa38c78aa6df2d33d3e20d9
+        with:
+          java-version: "21"
+          distribution: "corretto"
+          cache: "maven"
+
+      - name: Run tests
+        run: mvn -q test

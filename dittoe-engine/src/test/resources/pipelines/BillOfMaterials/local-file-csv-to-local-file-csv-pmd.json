@@ -1,0 +1,267 @@
+{
+  "id": "5a1f438a-b704-4aee-91b1-da906982506d",
+  "S2TMap": [
+    {
+      "sourceField": {
+        "name": "BillOfMaterialsID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "BillOfMaterialsID",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ProductAssemblyID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ProductAssemblyID",
+        "dataType": "Integer",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ComponentID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ComponentID",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "StartDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "StartDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "EndDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "EndDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "UnitMeasureCode",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "UnitMeasureCode",
+        "dataType": "String",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "BOMLevel",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "BOMLevel",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "PerAssemblyQty",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "PerAssemblyQty",
+        "dataType": "Decimal",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ModifiedDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ModifiedDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    }
+  ],
+  "behaviors": [
+    {
+      "name": "SourceRetrieval",
+      "properties": {
+        "errorCountThreshold": "1"
+      },
+      "description": "Used to retrieve data from the source resource",
+      "behaviorType": "SourceRetrieval"
+    },
+    {
+      "name": "TargetInsertUpdate",
+      "properties": {
+        "errorCountThreshold": "1"
+      },
+      "description": "Used to write data to the target resource",
+      "behaviorType": "TargetInsertUpdate"
+    },
+    {
+      "name": "Instrumentation",
+      "properties": {},
+      "description": "Used for pipeline instrumentation",
+      "behaviorType": "Instrumentation"
+    },
+    {
+      "name": "Transformation",
+      "properties": {},
+      "description": "Apply tansformation using DEAL",
+      "behaviorType": "Transformation"
+    }
+  ],
+  "shortName": "BillOfMaterials.csv to BillOfMaterials Pipeline",
+  "globalProperties": {},
+  "sourceResourceToProcess": {
+    "fields": [
+      {
+        "name": "BillOfMaterialsID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ProductAssemblyID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ComponentID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "StartDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "EndDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "UnitMeasureCode",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "BOMLevel",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "PerAssemblyQty",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ModifiedDate",
+        "dataType": "String",
+        "isNullable": false
+      }
+    ],
+    "server": {
+      "name": "local-file-server",
+      "type": "File",
+      "connectionDetails": {
+        "path": "src/test/resources/pipelines/BillOfMaterials/source",
+        "fileType": "LocalFileServer"
+      }
+    },
+    "strategy": "com.everyarrow.dittoe.io.file.servers.localfile.reader.strategy.CSVReadStrategy",
+    "resourceID": 3,
+    "resourceName": "local-file.csv",
+    "resourceProperties": {}
+  },
+  "targetResourceToProcess": {
+    "fields": [
+      {
+        "name": "BillOfMaterialsID",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "ProductAssemblyID",
+        "dataType": "Integer",
+        "isNullable": true
+      },
+      {
+        "name": "ComponentID",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "StartDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      },
+      {
+        "name": "EndDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": true
+      },
+      {
+        "name": "UnitMeasureCode",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "BOMLevel",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "PerAssemblyQty",
+        "dataType": "Decimal",
+        "isNullable": false
+      },
+      {
+        "name": "ModifiedDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    ],
+    "server": {
+      "name": "local-file-server",
+      "type": "File",
+      "connectionDetails": {
+        "path": "src/test/resources/pipelines/BillOfMaterials/target",
+        "fileType": "LocalFileServer"
+      }
+    },
+    "strategy": "com.everyarrow.dittoe.io.file.servers.localfile.writer.strategy.CSVWriteStrategy",
+    "resourceID": 4,
+    "resourceName": "local-file.csv",
+    "resourceProperties": {}
+  }
+}

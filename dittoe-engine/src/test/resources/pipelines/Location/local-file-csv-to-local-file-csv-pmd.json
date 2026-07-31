@@ -1,0 +1,179 @@
+{
+  "id": "6d15c88f-e65c-4e0a-bddc-dce86f823cd3",
+  "S2TMap": [
+    {
+      "sourceField": {
+        "name": "LocationID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "LocationID",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "Name",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "Name",
+        "dataType": "String",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "CostRate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "CostRate",
+        "dataType": "Decimal",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "Availability",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "Availability",
+        "dataType": "Decimal",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ModifiedDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ModifiedDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    }
+  ],
+  "behaviors": [
+    {
+      "name": "SourceRetrieval",
+      "properties": {
+        "errorCountThreshold": "1"
+      },
+      "description": "Used to retrieve data from the source resource",
+      "behaviorType": "SourceRetrieval"
+    },
+    {
+      "name": "TargetInsertUpdate",
+      "properties": {
+        "errorCountThreshold": "1"
+      },
+      "description": "Used to write data to the target resource",
+      "behaviorType": "TargetInsertUpdate"
+    },
+    {
+      "name": "Instrumentation",
+      "properties": {},
+      "description": "Used for pipeline instrumentation",
+      "behaviorType": "Instrumentation"
+    },
+    {
+      "name": "Transformation",
+      "properties": {},
+      "description": "Apply tansformation using DEAL",
+      "behaviorType": "Transformation"
+    }
+  ],
+  "shortName": "Location.csv to Location Pipeline",
+  "globalProperties": {},
+  "sourceResourceToProcess": {
+    "fields": [
+      {
+        "name": "LocationID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "Name",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "CostRate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "Availability",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ModifiedDate",
+        "dataType": "String",
+        "isNullable": false
+      }
+    ],
+    "server": {
+      "name": "local-file-server",
+      "type": "File",
+      "connectionDetails": {
+        "path": "src/test/resources/pipelines/Location/source",
+        "fileType": "LocalFileServer"
+      }
+    },
+    "strategy": "com.everyarrow.dittoe.io.file.servers.localfile.reader.strategy.CSVReadStrategy",
+    "resourceID": 3,
+    "resourceName": "local-file.csv",
+    "resourceProperties": {}
+  },
+  "targetResourceToProcess": {
+    "fields": [
+      {
+        "name": "LocationID",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "Name",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "CostRate",
+        "dataType": "Decimal",
+        "isNullable": false
+      },
+      {
+        "name": "Availability",
+        "dataType": "Decimal",
+        "isNullable": false
+      },
+      {
+        "name": "ModifiedDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    ],
+    "server": {
+      "name": "local-file-server",
+      "type": "File",
+      "connectionDetails": {
+        "path": "src/test/resources/pipelines/Location/target",
+        "fileType": "LocalFileServer"
+      }
+    },
+    "strategy": "com.everyarrow.dittoe.io.file.servers.localfile.writer.strategy.CSVWriteStrategy",
+    "resourceID": 4,
+    "resourceName": "local-file.csv",
+    "resourceProperties": {}
+  }
+}

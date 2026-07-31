@@ -1,0 +1,170 @@
+[
+  {
+    "serviceType": "core",
+    "className": "GenericProcessHandler",
+    "category": "Generic",
+    "active": true,
+    "annotations": {
+      "secured": {
+        "roles": [
+          "system"
+        ],
+        "scopes": [
+          "*"
+        ]
+      },
+      "monitored": {
+        "application": "EveryArrowCore",
+        "system": "Engine",
+        "environment": "production",
+        "responsibleUser": "system",
+        "notifyOnError": true
+      },
+      "restRoute": null,
+      "webhook": null
+    }
+  },
+  {
+    "serviceType": "core",
+    "className": "RegistryListHandler",
+    "category": "Discovery",
+    "active": true,
+    "annotations": {
+      "secured": {
+        "roles": [
+          "system",
+          "admin"
+        ],
+        "scopes": [
+          "core.read"
+        ]
+      },
+      "monitored": {
+        "application": "EveryArrowCore",
+        "system": "Registry",
+        "environment": "production",
+        "responsibleUser": "system",
+        "notifyOnError": false
+      },
+      "restRoute": {
+        "path": "/core/discovery/registry",
+        "method": "GET"
+      },
+      "webhook": null
+    }
+  },
+  {
+    "serviceType": "core",
+    "className": "ServiceTypesHandler",
+    "category": "Discovery",
+    "active": true,
+    "annotations": {
+      "secured": {
+        "roles": [
+          "system",
+          "admin"
+        ],
+        "scopes": [
+          "core.read"
+        ]
+      },
+      "monitored": {
+        "application": "EveryArrowCore",
+        "system": "Registry",
+        "environment": "production",
+        "responsibleUser": "system",
+        "notifyOnError": false
+      },
+      "restRoute": {
+        "path": "/core/discovery/types",
+        "method": "GET"
+      },
+      "webhook": null
+    }
+  },
+  {
+    "serviceType": "core",
+    "className": "ActivePluginsHandler",
+    "category": "Discovery",
+    "active": true,
+    "annotations": {
+      "secured": {
+        "roles": [
+          "system",
+          "admin"
+        ],
+        "scopes": [
+          "core.read"
+        ]
+      },
+      "monitored": {
+        "application": "EveryArrowCore",
+        "system": "Plugins",
+        "environment": "production",
+        "responsibleUser": "system",
+        "notifyOnError": false
+      },
+      "restRoute": {
+        "path": "/core/discovery/plugins",
+        "method": "GET"
+      },
+      "webhook": null
+    }
+  },
+  {
+    "serviceType": "core",
+    "className": "HealthCheckHandler",
+    "category": "Discovery",
+    "active": true,
+    "annotations": {
+      "secured": {
+        "roles": [
+          "system"
+        ],
+        "scopes": [
+          "core.health"
+        ]
+      },
+      "monitored": {
+        "application": "EveryArrowCore",
+        "system": "Health",
+        "environment": "production",
+        "responsibleUser": "system",
+        "notifyOnError": true
+      },
+      "restRoute": {
+        "path": "/core/health",
+        "method": "GET"
+      },
+      "webhook": null
+    }
+  },
+  {
+    "serviceType": "core",
+    "className": "RegistrySyncHandler",
+    "category": "MetaRegistration",
+    "active": true,
+    "annotations": {
+      "secured": {
+        "roles": [
+          "system"
+        ],
+        "scopes": [
+          "core.write"
+        ]
+      },
+      "monitored": {
+        "application": "EveryArrowCore",
+        "system": "Registry",
+        "environment": "production",
+        "responsibleUser": "system",
+        "notifyOnError": true
+      },
+      "restRoute": {
+        "path": "/core/discovery/sync",
+        "method": "POST"
+      },
+      "webhook": null
+    }
+  }
+]

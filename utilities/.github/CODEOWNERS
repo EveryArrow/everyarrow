@@ -1,0 +1,11 @@
+# Verify the team slug has write access before enforcing CODEOWNERS branch protection.
+* @EveryArrow/maintainers
+
+.github/** @EveryArrow/maintainers
+src/main/java/com/everyarrow/utilities/aws/** @EveryArrow/maintainers
+src/main/java/com/everyarrow/utilities/config/** @EveryArrow/maintainers
+src/main/java/com/everyarrow/utilities/db/** @EveryArrow/maintainers
+src/main/java/com/everyarrow/utilities/security/** @EveryArrow/maintainers
+everyarrow-bootstrap/** @EveryArrow/maintainers
+everyarrow-provisioner/** @EveryArrow/maintainers
+efs-log-tools/** @EveryArrow/maintainers

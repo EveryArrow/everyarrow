@@ -1,0 +1,97 @@
+services:
+  # PostgreSQL Source - with sample data
+  postgres-source:
+    image: postgres:16-alpine
+    container_name: dittoe-postgres-source
+    environment:
+      POSTGRES_USER: dittoe
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in docker/.env}
+      POSTGRES_DB: adventureworks
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./init/postgres-source-init.sql:/docker-entrypoint-initdb.d/01-init.sql
+      - postgres-source-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dittoe -d adventureworks"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - dittoe-network
+
+  # PostgreSQL Target - empty schema only
+  postgres-target:
+    image: postgres:16-alpine
+    container_name: dittoe-postgres-target
+    environment:
+      POSTGRES_USER: dittoe
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in docker/.env}
+      POSTGRES_DB: adventureworks
+    ports:
+      - "5434:5432"
+    volumes:
+      - ./init/postgres-target-init.sql:/docker-entrypoint-initdb.d/01-init.sql
+      - postgres-target-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dittoe -d adventureworks"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - dittoe-network
+
+  # MySQL Source - with sample data
+  mysql-source:
+    image: mysql:8.0
+    container_name: dittoe-mysql-source
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Set MYSQL_ROOT_PASSWORD in docker/.env}
+      MYSQL_DATABASE: adventureworks
+      MYSQL_USER: dittoe
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:?Set MYSQL_PASSWORD in docker/.env}
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./init/mysql-source-init.sql:/docker-entrypoint-initdb.d/01-init.sql
+      - mysql-source-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD:?Set MYSQL_ROOT_PASSWORD in docker/.env}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - dittoe-network
+
+  # MySQL Target - empty schema only
+  mysql-target:
+    image: mysql:8.0
+    container_name: dittoe-mysql-target
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Set MYSQL_ROOT_PASSWORD in docker/.env}
+      MYSQL_DATABASE: adventureworks
+      MYSQL_USER: dittoe
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:?Set MYSQL_PASSWORD in docker/.env}
+    ports:
+      - "3308:3306"
+    volumes:
+      - ./init/mysql-target-init.sql:/docker-entrypoint-initdb.d/01-init.sql
+      - mysql-target-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD:?Set MYSQL_ROOT_PASSWORD in docker/.env}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - dittoe-network
+
+volumes:
+  postgres-source-data:
+  postgres-target-data:
+  mysql-source-data:
+  mysql-target-data:
+
+networks:
+  dittoe-network:
+    name: dittoe-network
+    driver: bridge

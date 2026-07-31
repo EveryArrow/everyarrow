@@ -1,0 +1,237 @@
+services:
+  minio:
+    image: minio/minio:latest
+    container_name: dittoe-minio
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: dittoe
+      MINIO_ROOT_PASSWORD: dittoe123
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio-data:/data
+    networks:
+      - dittoe-network
+
+  minio-seed:
+    image: minio/mc:latest
+    container_name: dittoe-minio-seed
+    depends_on:
+      - minio
+    volumes:
+      - ../tests/matrix/fixtures:/fixtures:ro
+    entrypoint: /bin/sh
+    command: >
+      -c "until mc alias set local http://minio:9000 dittoe dittoe123; do sleep 1; done &&
+      mc mb --ignore-existing local/dittoe-matrix &&
+      mc cp /fixtures/canonical.csv local/dittoe-matrix/source/canonical.csv"
+    networks:
+      - dittoe-network
+
+  postgres-matrix-seed:
+    image: postgres:16-alpine
+    container_name: dittoe-postgres-matrix-seed
+    depends_on:
+      postgres-source:
+        condition: service_healthy
+      postgres-target:
+        condition: service_healthy
+    environment:
+      PGPASSWORD: dittoe123
+    entrypoint: /bin/sh
+    command: >
+      -c "set -e;
+      for host in postgres-source postgres-target; do
+        psql -h $$host -U dittoe -d adventureworks -c \"CREATE SCHEMA IF NOT EXISTS matrix;
+        DROP TABLE IF EXISTS matrix.canonical_source;
+        DROP TABLE IF EXISTS matrix.canonical_target;
+        CREATE TABLE matrix.canonical_source (id text, name text, amount text, active text, updated_at text, notes text);
+        CREATE TABLE matrix.canonical_target (id text, name text, amount text, active text, updated_at text, notes text, CONSTRAINT canonical_target_pkey PRIMARY KEY (id));\";
+      done;
+      psql -h postgres-source -U dittoe -d adventureworks -c \"INSERT INTO matrix.canonical_source VALUES
+        ('1','Alpha','10.50','true','2026-05-16T10:15:30Z','simple row'),
+        ('2','Beta, Inc','0.00','false','2026-05-16T10:16:30Z','contains comma'),
+        ('3','Gamma','999999.99','true','2026-05-16T10:17:30Z',CONCAT('contains ', CHR(34), 'quotes', CHR(34))),
+        ('4','Delta','','false','2026-05-16T10:18:30Z','empty amount');\""
+    networks:
+      - dittoe-network
+
+  mysql-matrix-seed:
+    image: mysql:8.0
+    container_name: dittoe-mysql-matrix-seed
+    depends_on:
+      mysql-source:
+        condition: service_healthy
+      mysql-target:
+        condition: service_healthy
+    entrypoint: /bin/sh
+    command: >
+      -c "set -e;
+      for host in mysql-source mysql-target; do
+        mysql -h $$host -P 3306 -udittoe -pdittoe123 adventureworks -e \"DROP TABLE IF EXISTS canonical_source;
+        DROP TABLE IF EXISTS canonical_target;
+        CREATE TABLE canonical_source (id text, name text, amount text, active text, updated_at text, notes text);
+        CREATE TABLE canonical_target (id text, name text, amount text, active text, updated_at text, notes text);\";
+      done;
+      mysql -h mysql-source -P 3306 -udittoe -pdittoe123 adventureworks -e \"INSERT INTO canonical_source VALUES
+        ('1','Alpha','10.50','true','2026-05-16T10:15:30Z','simple row'),
+        ('2','Beta, Inc','0.00','false','2026-05-16T10:16:30Z','contains comma'),
+        ('3','Gamma','999999.99','true','2026-05-16T10:17:30Z',CONCAT('contains ', CHAR(34), 'quotes', CHAR(34))),
+        ('4','Delta','','false','2026-05-16T10:18:30Z','empty amount');\""
+    networks:
+      - dittoe-network
+
+  fake-gcs:
+    image: fsouza/fake-gcs-server:1.52.3
+    container_name: dittoe-fake-gcs
+    command:
+      - -scheme
+      - http
+      - -port
+      - "4443"
+      - -backend
+      - memory
+      - -public-host
+      - localhost:4443
+    ports:
+      - "4443:4443"
+    networks:
+      - dittoe-network
+
+  fake-gcs-seed:
+    image: curlimages/curl:8.13.0
+    container_name: dittoe-fake-gcs-seed
+    depends_on:
+      - fake-gcs
+    volumes:
+      - ../tests/matrix/fixtures:/fixtures:ro
+    entrypoint: /bin/sh
+    command: >
+      -c "until curl -fsS 'http://fake-gcs:4443/storage/v1/b' >/dev/null; do sleep 1; done &&
+      curl -fsS -X POST -H 'Content-Type: application/json' -d '{\"name\":\"dittoe-matrix\"}' 'http://fake-gcs:4443/storage/v1/b?project=dittoe-test' &&
+      curl -fsS -X POST -H 'Content-Type: text/csv' --data-binary @/fixtures/canonical.csv 'http://fake-gcs:4443/upload/storage/v1/b/dittoe-matrix/o?uploadType=media&name=source/canonical.csv'"
+    networks:
+      - dittoe-network
+
+  azurite:
+    image: mcr.microsoft.com/azure-storage/azurite:3.35.0
+    container_name: dittoe-azurite
+    command: azurite-blob --blobHost 0.0.0.0 --loose --skipApiVersionCheck
+    ports:
+      - "10000:10000"
+    volumes:
+      - azurite-data:/data
+    networks:
+      - dittoe-network
+
+  azurite-seed:
+    image: mcr.microsoft.com/azure-cli:2.71.0
+    container_name: dittoe-azurite-seed
+    depends_on:
+      - azurite
+    environment:
+      AZURE_STORAGE_CONNECTION_STRING: DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://azurite:10000/devstoreaccount1;
+    volumes:
+      - ../tests/matrix/fixtures:/fixtures:ro
+    entrypoint: /bin/sh
+    command: >
+      -c "until az storage container create --name dittoe-matrix >/dev/null 2>&1; do sleep 1; done &&
+      az storage blob upload --container-name dittoe-matrix --name source/canonical.csv --file /fixtures/canonical.csv --overwrite true"
+    networks:
+      - dittoe-network
+
+  ftp-seed:
+    image: alpine:3.21
+    container_name: dittoe-ftp-seed
+    volumes:
+      - ftp-data:/ftp
+      - sftp-data:/sftp
+      - ../tests/matrix/fixtures:/fixtures:ro
+    command: >
+      sh -c "mkdir -p /ftp/source /ftp/target /sftp/source /sftp/target &&
+      cp /fixtures/canonical.csv /ftp/source/canonical.csv &&
+      cp /fixtures/canonical.csv /sftp/source/canonical.csv &&
+      chmod -R 0777 /ftp/target /sftp/target"
+
+  ftp:
+    image: delfer/alpine-ftp-server:latest
+    container_name: dittoe-ftp
+    depends_on:
+      - ftp-seed
+    environment:
+      USERS: dittoe|dittoe123|/home/dittoe
+      ADDRESS: localhost
+      MIN_PORT: 21000
+      MAX_PORT: 21010
+    ports:
+      - "2121:21"
+      - "21000-21010:21000-21010"
+    volumes:
+      - ftp-data:/home/dittoe
+    networks:
+      - dittoe-network
+
+  sftp:
+    image: atmoz/sftp:alpine
+    container_name: dittoe-sftp
+    depends_on:
+      - ftp-seed
+    command: dittoe:dittoe123:1001:1001:source,target
+    ports:
+      - "2223:22"
+    volumes:
+      - sftp-data:/home/dittoe
+    networks:
+      - dittoe-network
+
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: dittoe-mssql
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: Dittoe12345!
+    ports:
+      - "14333:1433"
+    volumes:
+      - mssql-data:/var/opt/mssql
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'Dittoe12345!' -C -Q 'SELECT 1' || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+    networks:
+      - dittoe-network
+
+  mssql-seed:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: dittoe-mssql-seed
+    depends_on:
+      mssql:
+        condition: service_healthy
+    entrypoint: /bin/bash
+    command: >
+      -c "/opt/mssql-tools18/bin/sqlcmd -S mssql -U sa -P 'Dittoe12345!' -C -Q \"IF DB_ID('adventureworks') IS NULL CREATE DATABASE adventureworks\" &&
+      /opt/mssql-tools18/bin/sqlcmd -S mssql -U sa -P 'Dittoe12345!' -C -d adventureworks -Q \"DROP TABLE IF EXISTS dbo.canonical_source;
+      DROP TABLE IF EXISTS dbo.canonical_target;
+      CREATE TABLE dbo.canonical_source (id nvarchar(100), name nvarchar(255), amount nvarchar(100), active nvarchar(20), updated_at nvarchar(100), notes nvarchar(1000));
+      CREATE TABLE dbo.canonical_target (id nvarchar(100) NOT NULL, name nvarchar(255), amount nvarchar(100), active nvarchar(20), updated_at nvarchar(100), notes nvarchar(1000), CONSTRAINT PK_canonical_target PRIMARY KEY (id));
+      INSERT INTO dbo.canonical_source VALUES
+        ('1','Alpha','10.50','true','2026-05-16T10:15:30Z','simple row'),
+        ('2','Beta, Inc','0.00','false','2026-05-16T10:16:30Z','contains comma'),
+        ('3','Gamma','999999.99','true','2026-05-16T10:17:30Z',CONCAT('contains ', CHAR(34), 'quotes', CHAR(34))),
+        ('4','Delta','','false','2026-05-16T10:18:30Z','empty amount');\""
+    networks:
+      - dittoe-network
+
+volumes:
+  minio-data:
+  azurite-data:
+  ftp-data:
+  sftp-data:
+  mssql-data:
+
+networks:
+  dittoe-network:
+    external: true
+    name: dittoe-network

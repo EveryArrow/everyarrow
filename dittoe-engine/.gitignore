@@ -1,0 +1,33 @@
+/target/
+.idea
+.settings
+.DS_Store*
+*.log
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*service-account*.json
+*credentials*.json
+
+~*
+*~
+
+/pipelines
+
+# Ignore everything inside pipeline directories
+src/test/resources/pipelines/*/*
+
+# But keep these directories and files
+!src/test/resources/pipelines/*/source/
+!src/test/resources/pipelines/*/target/
+!src/test/resources/pipelines/*/*-pmd.json
+
+# Ignore contents inside source and target directories
+src/test/resources/pipelines/*/target/*
+
+# Ignore SQLite database files
+src/test/resources/sqlite/target.db

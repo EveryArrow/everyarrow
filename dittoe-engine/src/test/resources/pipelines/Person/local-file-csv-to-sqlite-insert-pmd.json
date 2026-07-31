@@ -1,0 +1,356 @@
+{
+  "id": "e6c9ecdd-067b-4191-b7d6-5ef9cf41219d",
+  "S2TMap": [
+    {
+      "sourceField": {
+        "name": "BusinessEntityID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "BusinessEntityID",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "PersonType",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "PersonType",
+        "dataType": "String",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "NameStyle",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "NameStyle",
+        "dataType": "String",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "Title",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "Title",
+        "dataType": "String",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "FirstName",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "FirstName",
+        "dataType": "String",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "MiddleName",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "MiddleName",
+        "dataType": "String",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "LastName",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "LastName",
+        "dataType": "String",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "Suffix",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "Suffix",
+        "dataType": "String",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "EmailPromotion",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "EmailPromotion",
+        "dataType": "Integer",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "AdditionalContactInfo",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "AdditionalContactInfo",
+        "dataType": "String",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "Demographics",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "Demographics",
+        "dataType": "String",
+        "isNullable": true
+      }
+    },
+    {
+      "sourceField": {
+        "name": "rowguid",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "rowguid",
+        "dataType": "String",
+        "isNullable": false
+      }
+    },
+    {
+      "sourceField": {
+        "name": "ModifiedDate",
+        "dataType": "String",
+        "isNullable": false
+      },
+      "targetField": {
+        "name": "ModifiedDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    }
+  ],
+  "behaviors": [
+    {
+      "name": "SourceRetrieval",
+      "properties": {
+        "errorCountThreshold": "1"
+      },
+      "description": "Used to retrieve data from the source resource",
+      "behaviorType": "SourceRetrieval"
+    },
+    {
+      "name": "TargetInsertUpdate",
+      "properties": {
+        "errorCountThreshold": "1"
+      },
+      "description": "Used to write data to the target resource",
+      "behaviorType": "TargetInsertUpdate"
+    },
+    {
+      "name": "Instrumentation",
+      "properties": {},
+      "description": "Used for pipeline instrumentation",
+      "behaviorType": "Instrumentation"
+    },
+    {
+      "name": "Transformation",
+      "properties": {},
+      "description": "Apply tansformation using DEAL",
+      "behaviorType": "Transformation"
+    }
+  ],
+  "shortName": "Person to Person SQLite Pipeline",
+  "globalProperties": {},
+  "sourceResourceToProcess": {
+    "fields": [
+      {
+        "name": "BusinessEntityID",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "PersonType",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "NameStyle",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "Title",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "FirstName",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "MiddleName",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "LastName",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "Suffix",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "EmailPromotion",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "AdditionalContactInfo",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "Demographics",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "rowguid",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ModifiedDate",
+        "dataType": "String",
+        "isNullable": false
+      }
+    ],
+    "server": {
+      "name": "local-file-server",
+      "type": "File",
+      "connectionDetails": {
+        "path": "src/test/resources/pipelines/Person/source",
+        "fileType": "LocalFileServer"
+      }
+    },
+    "strategy": "com.everyarrow.dittoe.io.file.servers.localfile.reader.strategy.CSVReadStrategy",
+    "resourceID": 3,
+    "resourceName": "local-file.csv",
+    "resourceProperties": {}
+  },
+  "targetResourceToProcess": {
+    "fields": [
+      {
+        "name": "BusinessEntityID",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "PersonType",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "NameStyle",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "Title",
+        "dataType": "String",
+        "isNullable": true
+      },
+      {
+        "name": "FirstName",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "MiddleName",
+        "dataType": "String",
+        "isNullable": true
+      },
+      {
+        "name": "LastName",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "Suffix",
+        "dataType": "String",
+        "isNullable": true
+      },
+      {
+        "name": "EmailPromotion",
+        "dataType": "Integer",
+        "isNullable": false
+      },
+      {
+        "name": "AdditionalContactInfo",
+        "dataType": "String",
+        "isNullable": true
+      },
+      {
+        "name": "Demographics",
+        "dataType": "String",
+        "isNullable": true
+      },
+      {
+        "name": "rowguid",
+        "dataType": "String",
+        "isNullable": false
+      },
+      {
+        "name": "ModifiedDate",
+        "dataType": "DateTimeWithTimeZone",
+        "isNullable": false
+      }
+    ],
+    "server": {
+      "name": "sqlite",
+      "type": "Database",
+      "connectionDetails": {
+        "path": "src/test/resources/sqlite/target.db",
+        "databaseType": "SQLiteServer"
+      }
+    },
+    "strategy": "com.everyarrow.dittoe.io.database.servers.jdbc.writer.strategy.InsertStrategy",
+    "resourceID": 4,
+    "resourceName": "person",
+    "resourceProperties": {}
+  },
+  "templateType": "FileToDatabase"
+}

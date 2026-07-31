@@ -1,0 +1,19 @@
+services:
+  event-manager:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: everyarrow/event-manager:local
+    environment:
+      EVENT_ENGINE_HTTP_HOST: 0.0.0.0
+      EVENT_ENGINE_HTTP_PORT: 8080
+      EA_EVENT_MANAGER_MODE: local
+      EA_LOG_ROOT: /var/log/everyarrow
+      EA_PLUGIN_JAR_SOURCE: /opt/everyarrow/event-manager/plugin-jars
+      EA_PLUGIN_ROOT: /opt/everyarrow/event-manager/plugins
+    volumes:
+      - ./docker/config:/opt/everyarrow/event-manager/config:ro
+      - ./docker/plugin-jars:/opt/everyarrow/event-manager/plugin-jars:ro
+      - ./docker/logs:/var/log/everyarrow
+    ports:
+      - "8080:8080"

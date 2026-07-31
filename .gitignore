@@ -1,0 +1,16 @@
+**/target/
+**/.idea/
+**/*.iml
+**/.everyarrow/
+**/.ea-artemis/
+**/.env
+**/.env.*
+!**/.env.example
+**/*.pem
+**/*.key
+**/*.p12
+**/*.pfx
+**/*service-account*.json
+**/*credentials*.json
+.DS_Store
+Thumbs.db
