@@ -27,7 +27,7 @@
         <netty.version>4.1.136.Final</netty.version>
         <postgresql.version>42.7.12</postgresql.version>
         <json.version>20250517</json.version>
-        <aws.sdk.version>2.42.4</aws.sdk.version>
+        <aws.sdk.version>2.49.4</aws.sdk.version>
     </properties>
 
     <build>
