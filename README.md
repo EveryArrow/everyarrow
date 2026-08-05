@@ -165,9 +165,9 @@ implementations, or internal deployment tooling. In this source repository:
   installed.
 - Cloud helpers are optional and are not startup prerequisites.
 
-This repository is the only EveryArrow source repository intended for eventual
-public release. It remains private during release preparation and must not be
-made public until publication is approved separately.
+This is the public EveryArrow source repository. Private platform components
+and commercial distributions remain outside this repository and follow their
+own release and licensing processes.
 
 ## Documentation
 
