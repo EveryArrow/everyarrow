@@ -68,7 +68,7 @@
         <mssql.version>13.2.1.jre11</mssql.version>
         <junit.jupiter.version>5.11.4</junit.jupiter.version>
         <json.version>20250517</json.version>
-        <snowflake.jdbc.version>4.3.2</snowflake.jdbc.version>
+        <snowflake.jdbc.version>4.3.4</snowflake.jdbc.version>
         <uuid.creator.version>6.1.1</uuid.creator.version>
         <jsonschema.generator.version>4.37.0</jsonschema.generator.version>
         <json.schema.validator.version>1.5.4</json.schema.validator.version>
